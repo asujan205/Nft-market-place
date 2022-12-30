@@ -17,7 +17,7 @@ contract NftMarket is ERC721URIStorage, Ownable {
     address payable owner;
     bool sold;
   }
-   uint public listingPrice = 0.025 ether;
+   uint256 public listingPrice = 0.025*10**18 ;
 
   mapping(uint => NftItem) private _idToNftItem;
 
@@ -36,7 +36,7 @@ constructor() ERC721("CreaturesNFT", "CNFT") {
     require(newPrice > 0, "Price must be at least 1 wei");
     listingPrice = newPrice;
   }
-  function getListinPrice() public view returns(uint){
+  function getListinPrice() public view returns(uint256){
  return listingPrice;
   }
 
@@ -57,7 +57,7 @@ constructor() ERC721("CreaturesNFT", "CNFT") {
 //  private function that create NftiTEMS after NftTokEN Minted
 function createMarketItem(uint256 newId,uint256 price) private{
   require(price>0,"price must have some of the value");
-  require(msg.value== listingPrice,"price should be equal to listing price");
+  require(msg.value == listingPrice,"price should be equal to listing price");
   _idToNftItem[newId]=NftItem(
     newId,
     price,
