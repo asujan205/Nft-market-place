@@ -17,7 +17,7 @@ contract NftMarket is ERC721URIStorage, Ownable {
     address payable owner;
     bool sold;
   }
-   uint256 public listingPrice = 0.025*10**18 ;
+   uint256 public listingPrice = 0.025*10**18;
 
   mapping(uint => NftItem) private _idToNftItem;
 
@@ -27,6 +27,10 @@ contract NftMarket is ERC721URIStorage, Ownable {
     address  seller,
     address  owner,
     bool sold
+  );
+  bool comapredValue = false;
+  event IsCompared (
+    bool comapredValue
   );
 constructor() ERC721("CreaturesNFT", "CNFT") {
   //owner= payable(msg.sender);
@@ -39,7 +43,7 @@ constructor() ERC721("CreaturesNFT", "CNFT") {
   function getListinPrice() public view returns(uint256){
  return listingPrice;
   }
-
+  
   //CreateNft Function
  function createNft(string memory tokenURI, uint256 price) public payable returns (uint256)
  
@@ -57,7 +61,13 @@ constructor() ERC721("CreaturesNFT", "CNFT") {
 //  private function that create NftiTEMS after NftTokEN Minted
 function createMarketItem(uint256 newId,uint256 price) private{
   require(price>0,"price must have some of the value");
-  require(msg.value == listingPrice,"price should be equal to listing price");
+  if(msg.value == listingPrice)
+  {
+    comapredValue = true;
+  }
+  
+  emit IsCompared(comapredValue);
+  // require(msg.value== listingPrice,"price should be equal to listing price");
   _idToNftItem[newId]=NftItem(
     newId,
     price,
