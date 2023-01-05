@@ -3,6 +3,9 @@ import useConnected from "./useConnected";
 const Homepage:any =()=>{
     const checkArray = useConnected()
     
+    const ConnectWallet=()=>{
+        
+    }
     return (<>
     {checkArray.isConnected ?
     <>
@@ -10,7 +13,7 @@ const Homepage:any =()=>{
     </>
     
     :<>
-    <button>connectWallet</button>
+    <button onClick={ConnectWallet} >connectWallet</button>
     </>
     }
     </>)
