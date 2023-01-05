@@ -3,7 +3,7 @@ import React, { SyntheticEvent, useRef, useState } from "react";
 import { NftAbi } from "../../NftAbi";
 import Web3 from "web3";
 const web3 = new Web3(Web3.givenProvider || "http://localhost:7545");
-const contractAddress = "0xa4C21722CcA790dC39A6aC43DaB62c5Ba42c81d3";
+const contractAddress = "0xEFFA834d08Ed864ab69a34c6faAd74eDDc4dA478";
 const contract = new web3.eth.Contract(NftAbi, contractAddress);
 import styles from '../../Cssfolder/UploadLabLe.module.css'
 
@@ -55,38 +55,17 @@ target:{
       const data = await res.json();
        const mapuri = data.uri
       //  console.log(price)
-       const listing = 0.025*Math.pow(10,18)
+       const listing = String(0.025*Math.pow(10,18))
       const accounts = await web3.eth.getAccounts();
       const account = accounts[0];
-      const listingPrice = await contract.methods.getListinPrice().call()
-      if (listing === listingPrice){
-        console.log("correct")
-      }
-      else{
-        console.log("wrong")
-      }
-      console.log(listingPrice)
-      // // console.log(listing)
-      const gas = await contract.methods.createNft(mapuri, price).estimateGas()
-      const AddNft = await contract.methods
-        .createNft(mapuri, price)
-        .send({ value:listing,from: account, gas });
-        let options = {
-          fromBlock: 0,
-          address: [],    //Only get events from specific addresses
-          topics: []                              //What topics to subscribe to
-      };
       
-      let subscription = web3.eth.subscribe('logs', options,(err,event) => {
-          if (!err)
-          console.log(event)
-      });
-      subscription.on('data', event => console.log(event))
-subscription.on('changed', changed => console.log(changed))
-subscription.on('error', err => { throw err })
-subscription.on('connected', nr => console.log(nr))
-      
-      console.log(AddNft);
+     
+      const dataS = await contract.methods.createNft(mapuri, String(price)).send({
+        from: account,
+        value: 25000000000000000
+        
+    })
+    console.log(dataS)
     }
   };
 

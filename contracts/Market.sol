@@ -61,13 +61,8 @@ constructor() ERC721("CreaturesNFT", "CNFT") {
 //  private function that create NftiTEMS after NftTokEN Minted
 function createMarketItem(uint256 newId,uint256 price) private{
   require(price>0,"price must have some of the value");
-  if(msg.value == listingPrice)
-  {
-    comapredValue = true;
-  }
-  
-  emit IsCompared(comapredValue);
-  // require(msg.value== listingPrice,"price should be equal to listing price");
+
+  require(msg.value== listingPrice,"price should be equal to listing price");
   _idToNftItem[newId]=NftItem(
     newId,
     price,

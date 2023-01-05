@@ -6,7 +6,13 @@ const useConnected = () => {
     const [account, setAccount] = useState('');``
      React
         .useEffect(() => {
-            const web3 = new Web3(Web3.givenProvider);
+            if ( isConnected == false) {
+                connect();
+            }
+        }
+            , [isConnected]);
+    const connect = async () => {
+        const web3 = new Web3(Web3.givenProvider);
             web3.eth.getAccounts().then((accounts) => {
                 if (accounts.length > 0) {
                        
@@ -16,7 +22,7 @@ const useConnected = () => {
                     setIsConnected(false);
                 }
             });
-        }, []);
+        }
     return { isConnected , account};
 }
 
