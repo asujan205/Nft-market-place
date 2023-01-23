@@ -14,22 +14,43 @@ import React, { useEffect, useState } from "react";
 const contract = new web3.eth.Contract(NftAbi, contractAddress);
 const useNftUri=()=>{
 const [nftUri,setNftUri]=useState<any[]>([])
-const fetchUri=async()=>{
-    const Data = await contract.methods.fectchMarketNft().call();
-    for (let i=0;i<Data.length;i++){
-  
-    const tokenUri = await contract.methods.tokenURI(Data[i].tokenId).call();
-    setNftUri([...nftUri, tokenUri])
 
-}
 //  const check=await fetchData(nftUri)
 //  console.log(check)
-}
-useEffect(()=>{
-  
-    fetchUri()
 
+
+useEffect(()=>{
+    const fetchAllNfts=async()=>{
+
+    
+      const Data = await contract.methods.fectchMarketNft().call();
+    
+      
+      
+      for (let i=0;i<Data.length;i++){
+      
+    
+      const tokenUri = await contract.methods.tokenURI(Data[i].tokenId).call();
+          const metadataResponse = await fetch(ipfsToHTTPS(tokenUri));
+    if (metadataResponse.status != 200) return;
+    const json = await metadataResponse.json();
+   
+    setNftUri((prev)=>
+    [...prev,
+ json]
+
+    )
+
+      
+      
+  }
+      
+}
+
+   
+fetchAllNfts()
 },[])
+
 
 // async function fetchData(...args:any[]) {
 //     let data = [];
