@@ -13,7 +13,7 @@ const FetchUserNft=()=>{
         const accounts= await web3.eth.getAccounts();
         const account = accounts[0]
         console.log(account)
-        const myNfts=await contract.methods.fetchItemsListed().call({from:account});
+        const myNfts=await contract.methods.fetchMyNft().call({from:account});
         let newData=[]
         for(let i = 0; i<myNfts.length; i++){
             
@@ -32,7 +32,10 @@ const FetchUserNft=()=>{
         fetchNfts()
 
     },[])
-      const ReSell=()=>{
+      const ReSell=async(tokenId:any)=>{
+         const accounta = await web3.eth.getAccounts()
+         const account = accounta[0];
+         const reSell = await contract.methods.reSellToken(tokenId,40).send({from:account,value: 25000000000000000})
 
       }
     return(<>
@@ -41,7 +44,7 @@ const FetchUserNft=()=>{
         <p>{items.name}</p>
         <p>{items.description}</p>
         <img src={ipfsToHTTPS(items.image)} height={100} width={100}/><br/>
-        <button onClick={ReSell}>ReSell</button>
+        <button onClick={()=>ReSell(items.tokenId)}>ReSell</button>
         </>)
 
     })
