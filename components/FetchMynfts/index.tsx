@@ -36,6 +36,7 @@ const FetchUserNft=()=>{
          const accounta = await web3.eth.getAccounts()
          const account = accounta[0];
          const reSell = await contract.methods.reSellToken(tokenId,40).send({from:account,value: 25000000000000000})
+         console.log(reSell)
 
       }
     return(<>

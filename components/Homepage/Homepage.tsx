@@ -43,7 +43,7 @@ const Homepage:any =()=>{
       if (metadataResponse.status != 200) return;
       const json = await metadataResponse.json();
     
-      newData.push({...json,tokenId:Data[i].tokenId})
+      newData.push({...json,tokenId:Data[i].tokenId,money:Data[i].price})
     
      
   //     setMetadata((prev)=>
@@ -89,7 +89,7 @@ const Homepage:any =()=>{
       <><p key={key}>{item.name}</p>
      <img src={ipfsToHTTPS(item.image)} alt="nfts" width={45} height={50} key={key}/>
      <p key={key}>{item.description}</p>
-     <p key={key}>{item.price}</p>
+     <p key={key}>{item.money}</p>
      <button  onClick={()=>BuyNfts(item.tokenId)}>Buy</button>
       </>)
 
