@@ -1,12 +1,10 @@
-
 import React, { SyntheticEvent, useRef, useState } from "react";
 import { NftAbi } from "../../NftAbi";
 import Web3 from "web3";
 const web3 = new Web3(Web3.givenProvider || "http://localhost:7545");
 const contractAddress = "0xBC98199BB6820dF2a57E9A417542142b6c1A46D6";
 const contract = new web3.eth.Contract(NftAbi, contractAddress);
-import styles from '../../Cssfolder/UploadLabLe.module.css'
-
+import styles from "../../Cssfolder/UploadLabLe.module.css";
 
 //import * as Yup from 'yup'
 // import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -27,23 +25,23 @@ import styles from '../../Cssfolder/UploadLabLe.module.css'
 const CreationForm = () => {
   const formRef = useRef<any>(null);
   const [price, setPrice] = useState<string>();
-  const [preiview,setPrieveiw]= useState<boolean>(true)
-  const[url,setFile]=useState<string>()
+  const [preiview, setPrieveiw] = useState<boolean>(true);
+  const [url, setFile] = useState<string>();
 
   // const data = new FormData();
- const handleFileInput=(e: SyntheticEvent & {
-target:{
-  files:any
-}
- })=>{
-  const files:any = e.target.files[0]
-  const objectUrl = URL.createObjectURL(files)
-        setFile(objectUrl)
-        return()=> URL.revokeObjectURL(objectUrl)
-  
-
- }
-  const handleSubmit = async (e:any) => {
+  const handleFileInput = (
+    e: SyntheticEvent & {
+      target: {
+        files: any;
+      };
+    }
+  ) => {
+    const files: any = e.target.files[0];
+    const objectUrl = URL.createObjectURL(files);
+    setFile(objectUrl);
+    return () => URL.revokeObjectURL(objectUrl);
+  };
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     const formData = new FormData(formRef.current);
@@ -53,53 +51,61 @@ target:{
     });
     if (res.ok) {
       const data = await res.json();
-       const mapuri = data.uri
+      const mapuri = data.uri;
       //  console.log(price)
-       const listing = String(0.025*Math.pow(10,18))
+      const listing = String(0.025 * Math.pow(10, 18));
       const accounts = await web3.eth.getAccounts();
       const account = accounts[0];
-      
-     console.log(mapuri)
+
+      console.log(mapuri);
       const dataS = await contract.methods.createNft(mapuri, price).send({
         from: account,
-        value: 25000000000000000
-        
-    })
-    console.log(dataS)
+        value: 25000000000000000,
+      });
+      console.log(dataS);
     }
   };
 
   return (
-    
-    <>  
-    <form ref={formRef}>
-      {!preiview ?<>
-    
-    <label
-      htmlFor={"actual-btn"}
-       className={styles.uploadlabel}
-    >
-      Choose File
-    </label>
-    </>:<>
-    <label
-      htmlFor={"actual-btn"}
-       className={styles.uploadlabel}
-    >
-      <img className={styles.previewImage} src ={ url}/>
-
-    </label>
-
-    </>
-      
-    }
-        <input type="file" name="image" id="actual-btn" hidden={true} style={{display:"none"}} onChange={(e:any)=>{
-          handleFileInput(e)
-        }}/>
+    <>
+      <form ref={formRef}>
+        {!preiview ? (
+          <>
+            <label htmlFor={"actual-btn"} className={styles.uploadlabel}>
+              Choose File
+            </label>
+          </>
+        ) : (
+          <>
+            <label htmlFor={"actual-btn"} className={styles.uploadlabel}>
+              <img className={styles.previewImage} src={url} />
+            </label>
+          </>
+        )}
+        <input
+          type="file"
+          name="image"
+          id="actual-btn"
+          hidden={true}
+          style={{ display: "none" }}
+          onChange={(e: any) => {
+            handleFileInput(e);
+          }}
+        />
         <br />
-        <input type={"text"} name={"name"} placeholder={"Name"}   className= {styles.namefield }/>
+        <input
+          type={"text"}
+          name={"name"}
+          placeholder={"Name"}
+          className={styles.namefield}
+        />
         <br />
-        <input type={"text"} name={"description"} placeholder={"Description"} className={styles.descriptionField} />
+        <input
+          type={"text"}
+          name={"description"}
+          placeholder={"Description"}
+          className={styles.descriptionField}
+        />
         <br />
         <input
           type={"number"}
@@ -111,7 +117,11 @@ target:{
           }}
         />
         <br />
-        <button type={"submit"} onClick={handleSubmit} className={styles.Sumbitbtn}>
+        <button
+          type={"submit"}
+          onClick={handleSubmit}
+          className={styles.Sumbitbtn}
+        >
           Submit
         </button>
       </form>
