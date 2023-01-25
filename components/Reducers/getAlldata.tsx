@@ -49,6 +49,7 @@ export const getTheData = async (state = newData, action: any) => {
       }
       return state;
     }
+
     case "getBuynfts": {
       const accounts = await web3.eth.getAccounts();
       const account = accounts[0];
