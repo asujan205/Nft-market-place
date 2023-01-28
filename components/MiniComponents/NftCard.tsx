@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ipfsToHTTPS } from "../Helper";
+import styles from "./NftsCard.module.css";
 
 type NftsProps = {
   Name: string;
@@ -14,4 +15,16 @@ const NftCard = (data: NftsProps) => {
     const url = ipfsToHTTPS(data.imageUrl);
     setImageUrl(url);
   }, [data.imageUrl]);
+
+  return (
+    <>
+      <div className={styles.MainDiv}>
+        <div className={styles.ImageSections}>
+          <img src={imageUrl}></img>
+        </div>
+        <div className={styles.titleSections}>{data.Name}</div>
+        <div className={styles.descriptions}>{data.description}</div>
+      </div>
+    </>
+  );
 };
