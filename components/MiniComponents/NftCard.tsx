@@ -9,7 +9,7 @@ type NftsProps = {
 };
 
 const NftCard = (data: NftsProps) => {
-  const [imageUrl, setImageUrl] = useState();
+  const [imageUrl, setImageUrl] = useState<string>();
   useEffect(() => {
     const url = ipfsToHTTPS(data.imageUrl);
     setImageUrl(url);
