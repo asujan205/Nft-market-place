@@ -24,6 +24,7 @@ const NftCard = (data: NftsProps) => {
         </div>
         <div className={styles.titleSections}>{data.Name}</div>
         <div className={styles.descriptions}>{data.description}</div>
+        <div className={styles.price}>{data.Price}</div>
       </div>
     </>
   );
