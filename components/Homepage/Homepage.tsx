@@ -71,11 +71,11 @@ const Homepage: any = () => {
   console.log(metaData);
   return (
     <>
-      <div className="flex flex-wrap space-x-10 mr-auto  ">
+      <div className="flex flex-wrap space-x-10 mx-auto justify-center	mt-10">
         {metaData.map((item, key) => {
           return (
             <>
-              <div className="flex-column ">
+              <div className="flex-column flex-wrap space-y-2">
                 <NftCard
                   Name={item.name}
                   Price={item.money}
@@ -95,7 +95,7 @@ const Homepage: any = () => {
             <p key={key}>{item.money}</p> */}
                 <button
                   onClick={() => BuyNfts(item.tokenId)}
-                  className="h-12 rounded-lg bg-black px-10 py-2  text-xl font-semibold text-white"
+                  className="h-15 rounded-lg bg-sujan-100 px-10 py-2 pl-3 text-xl font-semibold text-white"
                 >
                   Buy
                 </button>
