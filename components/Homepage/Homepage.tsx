@@ -71,18 +71,19 @@ const Homepage: any = () => {
   console.log(metaData);
   return (
     <>
-      {metaData.map((item, key) => {
-        return (
-          <>
-            <div className="flex flex-wrap">
-              <NftCard
-                Name={item.name}
-                Price={item.money}
-                description={item.description}
-                imageUrl={item.image}
-              />
-            </div>
-            {/* <p key={key}>{item.name}</p>
+      <div className="flex flex-wrap space-x-10 mr-auto  ">
+        {metaData.map((item, key) => {
+          return (
+            <>
+              <div className="flex-column ">
+                <NftCard
+                  Name={item.name}
+                  Price={item.money}
+                  description={item.description}
+                  imageUrl={item.image}
+                />
+
+                {/* <p key={key}>{item.name}</p>
             <img
               src={ipfsToHTTPS(item.image)}
               alt="nfts"
@@ -92,10 +93,17 @@ const Homepage: any = () => {
             />
             <p key={key}>{item.description}</p>
             <p key={key}>{item.money}</p> */}
-            <button onClick={() => BuyNfts(item.tokenId)}>Buy</button>
-          </>
-        );
-      })}
+                <button
+                  onClick={() => BuyNfts(item.tokenId)}
+                  className="h-12 rounded-lg bg-black px-10 py-2  text-xl font-semibold text-white"
+                >
+                  Buy
+                </button>
+              </div>
+            </>
+          );
+        })}
+      </div>
     </>
   );
 };
