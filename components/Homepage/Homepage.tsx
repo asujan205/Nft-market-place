@@ -4,6 +4,7 @@ import useNftUri from "../getUri";
 import Web3 from "web3";
 import { NftAbi } from "../../NftAbi";
 import { ipfsToHTTPS } from "../Helper";
+import NftCard from "../MiniComponents/NftCard";
 
 const web3 = new Web3(Web3.givenProvider || "http://localhost:7545");
 const contractAddress = "0xBC98199BB6820dF2a57E9A417542142b6c1A46D6";
@@ -73,7 +74,15 @@ const Homepage: any = () => {
       {metaData.map((item, key) => {
         return (
           <>
-            <p key={key}>{item.name}</p>
+            <div className="flex flex-wrap">
+              <NftCard
+                Name={item.name}
+                Price={item.money}
+                description={item.description}
+                imageUrl={item.image}
+              />
+            </div>
+            {/* <p key={key}>{item.name}</p>
             <img
               src={ipfsToHTTPS(item.image)}
               alt="nfts"
@@ -82,7 +91,7 @@ const Homepage: any = () => {
               key={key}
             />
             <p key={key}>{item.description}</p>
-            <p key={key}>{item.money}</p>
+            <p key={key}>{item.money}</p> */}
             <button onClick={() => BuyNfts(item.tokenId)}>Buy</button>
           </>
         );
