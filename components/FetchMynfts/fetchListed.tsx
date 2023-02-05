@@ -34,22 +34,21 @@ const FetchListed = () => {
 
   return (
     <>
-      <div className="flex flex-wrap ">
-        <p className="text-justify text-slate-200	">
-          Token I have listed for sale
-        </p>
-        {nfts.map((item, key) => {
-          return (
-            <>
-              <div className="flex-column flex-wrap space-y-2">
-                <NftCard
-                  Name={item.name}
-                  Price={item.money}
-                  description={item.description}
-                  imageUrl={item.image}
-                />
+      <div className="flex flex-wrap  flex-row  gap-x-10">
+        <p className="text-justify	">Token I have listed for sale</p>
+        <div className="flex flex-column">
+          {nfts.map((item, key) => {
+            return (
+              <>
+                <div className="flex-column flex-wrap space-y-2">
+                  <NftCard
+                    Name={item.name}
+                    Price={item.money}
+                    description={item.description}
+                    imageUrl={item.image}
+                  />
 
-                {/* <p key={key}>{item.name}</p>
+                  {/* <p key={key}>{item.name}</p>
             <img
               src={ipfsToHTTPS(item.image)}
               alt="nfts"
@@ -59,10 +58,11 @@ const FetchListed = () => {
             />
             <p key={key}>{item.description}</p>
             <p key={key}>{item.money}</p> */}
-              </div>
-            </>
-          );
-        })}
+                </div>
+              </>
+            );
+          })}
+        </div>
       </div>
     </>
   );
