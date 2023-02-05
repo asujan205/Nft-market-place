@@ -34,13 +34,13 @@ const FetchListed = () => {
 
   return (
     <>
-      <div className="flex flex-wrap  flex-row  gap-x-10">
+      <div className="flex flex-wrap py-10 flex-row px-10 align-middle">
         <p className="text-justify	">Token I have listed for sale</p>
-        <div className="flex flex-column">
+        <div className="flex flex-column gap-10 p ">
           {nfts.map((item, key) => {
             return (
               <>
-                <div className="flex-column flex-wrap space-y-2">
+                <div className="flex-column flex-wrap space-y-2 ">
                   <NftCard
                     Name={item.name}
                     Price={item.money}
