@@ -1,13 +1,12 @@
 import Web3 from "web3";
 import CreationForm from "../components/CreationNft/creation";
+import OwnedNfts from "../components/FetchMynfts/Index";
 import Homepage from "../components/Homepage/Homepage";
-import FetchUserNft from "../components/FetchMynfts/fetchBuyed";
-import FetchListed from "../components/FetchMynfts/fetchListed";
 
 export default function Home() {
   return (
     <>
-      <FetchListed />
+      <OwnedNfts />
     </>
   );
 }
