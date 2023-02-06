@@ -49,6 +49,9 @@ const Donate = () => {
           <output id="value" className="block text-center mt-2 text-gray-600">
             {Cal}
           </output>
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Pay with Card
+          </button>
         </div>
 
         {/* <script>
