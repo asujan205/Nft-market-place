@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { Value } from "sass";
 
 const Donate = () => {
-  const [Amount, setAmount] = useState<string>();
-  const [slider, setSlider] = useState<number>();
+  const [Amount, setAmount] = useState<any>();
+  const [value, setValue] = useState<any>();
+  const Cal = Amount * (value / 500);
 
   return (
     <>
@@ -32,6 +34,30 @@ const Donate = () => {
             />
           </div>
         </div>
+        <div className="w-64 mb-6">
+          <label
+            htmlFor="percentage"
+            className="block text-gray-700 font-medium mb-2"
+          >
+            Percentage
+          </label>
+          <input
+            type="range"
+            className="w-full appearance-none bg-gray-200 rounded-lg py-2 px-3 border border-gray-400"
+            id="percentage"
+            min="0"
+            max="100"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+          />
+          <output id="value" className="block text-center mt-2 text-gray-600">
+            {Cal}
+          </output>
+        </div>
+
+        {/* <script>
+
+</script> */}
       </div>
     </>
   );
