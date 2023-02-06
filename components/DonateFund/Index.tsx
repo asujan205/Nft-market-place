@@ -9,10 +9,6 @@ const Donate = () => {
   return (
     <>
       <div className="flex flex-col align-center bg-white w-60 m-20">
-        <div className="GroupInfo">
-          <p>hello</p>
-          <p>world</p>
-        </div>
         <div className="flex flex-col justify-between items-center mb-6">
           <label
             htmlFor="money"
