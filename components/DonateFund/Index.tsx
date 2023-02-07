@@ -6,7 +6,17 @@ const Donate = () => {
   const [Amount, setAmount] = useState<any>();
   const [value, setValue] = useState<any>();
   const Cal = Amount * (value / 500);
-  const toatlAmnt = Number(Amount) + Number(Cal);
+
+  const [coustomeTip, setCustomeTips] = useState<boolean>(true);
+  const [custome, setCustome] = useState<any>();
+  const [totalAmnt, setTotal] = useState<number>();
+  // if (coustomeTip) {
+  //   const toatlAmnt = Number(Amount) + Number(Cal);
+  //   setTotal(toatlAmnt);
+  // } else {
+  //   const toatlAmnt = Number(Amount) + Number(custome);
+  //   setTotal(toatlAmnt);
+  // }
 
   return (
     <>
@@ -32,26 +42,50 @@ const Donate = () => {
             />
           </div>
         </div>
-        <div className="w-64 mb-6">
-          <label
-            htmlFor="percentage"
-            className="block text-gray-700 font-medium mb-2"
-          >
-            Percentage
-          </label>
-          <input
-            type="range"
-            className="w-full appearance-none bg-gray-200 rounded-lg py-2 px-3 border border-gray-400"
-            id="percentage"
-            min="0"
-            max="100"
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-          />
-          <output id="value" className="block text-center mt-2 text-gray-600">
-            {Cal}
-          </output>
-        </div>
+        {coustomeTip ? (
+          <>
+            <div className="w-50 mb-6">
+              <label
+                htmlFor="percentage"
+                className="block text-gray-700 font-medium mb-2"
+              >
+                Percentage
+              </label>
+              <input
+                type="range"
+                className="w-full appearance-none bg-gray-200 rounded-lg py-2 px-3 border border-gray-400"
+                id="percentage"
+                min="0"
+                max="100"
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+              />
+
+              <output
+                id="value"
+                className="block text-center mt-2 text-gray-600"
+              >
+                {Cal}
+              </output>
+
+              <button onClick={() => setCustomeTips(false)}>
+                set and custome tips
+              </button>
+            </div>
+          </>
+        ) : (
+          <>
+            <input
+              type="text"
+              className="w-full appearance-none bg-gray-200 rounded-lg py-2 px-3 border border-gray-400"
+              id="percentage"
+              min="0"
+              max="100"
+              value={value}
+              onChange={(e) => setCustome(e.target.value)}
+            />
+          </>
+        )}
         <div>
           <PaymentMethodSelector />
         </div>
@@ -59,7 +93,7 @@ const Donate = () => {
           <p>Yours Donation</p>
           <p>Amount:{Amount}</p>
           <p>tips:{Cal}</p>
-          <p>Total:{toatlAmnt}</p>
+          <p>Total:{totalAmnt}</p>
         </div>
 
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5 ">
