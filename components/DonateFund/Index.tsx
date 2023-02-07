@@ -5,6 +5,8 @@ import PaymentMethodSelector from "./payment";
 const Donate = () => {
   const [Amount, setAmount] = useState<any>();
   const [value, setValue] = useState<any>();
+  const [selectedMethod, setSelectedMethod] = useState("");
+
   const Cal = Amount * (value / 500);
 
   const [coustomeTip, setCustomeTips] = useState<boolean>(true);
@@ -83,7 +85,7 @@ const Donate = () => {
           </>
         )}
         <div>
-          <PaymentMethodSelector />
+          <PaymentMethodSelector setSelectedMethod={setSelectedMethod} />
         </div>
         <div className="flex flex-col">
           <p>Yours Donation</p>
