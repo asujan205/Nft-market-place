@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const PaymentMethodSelector = () => {
-  const [selectedMethod, setSelectedMethod] = useState("credit");
+  const [selectedMethod, setSelectedMethod] = useState("");
 
   const handleOptionChange = (event: any) => {
     setSelectedMethod(event.target.value);
