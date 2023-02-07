@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Value } from "sass";
+import PaymentMethodSelector from "./payment";
 
 const Donate = () => {
   const [Amount, setAmount] = useState<any>();
   const [value, setValue] = useState<any>();
   const Cal = Amount * (value / 500);
+  const toatlAmnt = Number(Amount) + Number(Cal);
 
   return (
     <>
@@ -49,10 +51,20 @@ const Donate = () => {
           <output id="value" className="block text-center mt-2 text-gray-600">
             {Cal}
           </output>
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Pay with Card
-          </button>
         </div>
+        <div>
+          <PaymentMethodSelector />
+        </div>
+        <div className="flex flex-col">
+          <p>Yours Donation</p>
+          <p>Amount:{Amount}</p>
+          <p>tips:{Cal}</p>
+          <p>Total:{toatlAmnt}</p>
+        </div>
+
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5 ">
+          Proceed Payment
+        </button>
 
         {/* <script>
 
