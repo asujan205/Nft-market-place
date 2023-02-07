@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Value } from "sass";
+import ConfirmModel from "./Confirmations";
 import PaymentMethodSelector from "./payment";
 
 const Donate = () => {
@@ -97,6 +98,7 @@ const Donate = () => {
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5 ">
           Proceed Payment
         </button>
+        <ConfirmModel amount={totalAmnt} payMethods={selectedMethod} />
 
         {/* <script>
 
