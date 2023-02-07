@@ -9,14 +9,10 @@ const Donate = () => {
 
   const [coustomeTip, setCustomeTips] = useState<boolean>(true);
   const [custome, setCustome] = useState<any>();
-  const [totalAmnt, setTotal] = useState<number>();
-  // if (coustomeTip) {
-  //   const toatlAmnt = Number(Amount) + Number(Cal);
-  //   setTotal(toatlAmnt);
-  // } else {
-  //   const toatlAmnt = Number(Amount) + Number(custome);
-  //   setTotal(toatlAmnt);
-  // }
+  const tip = coustomeTip ? Cal : custome;
+  const totalAmnt = coustomeTip
+    ? Number(Amount) + Number(Cal)
+    : Number(Amount) + Number(custome);
 
   return (
     <>
@@ -92,7 +88,7 @@ const Donate = () => {
         <div className="flex flex-col">
           <p>Yours Donation</p>
           <p>Amount:{Amount}</p>
-          <p>tips:{Cal}</p>
+          <p>tips:{tip}</p>
           <p>Total:{totalAmnt}</p>
         </div>
 
