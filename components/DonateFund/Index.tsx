@@ -7,6 +7,7 @@ const Donate = () => {
   const [Amount, setAmount] = useState<any>();
   const [value, setValue] = useState<any>();
   const [selectedMethod, setSelectedMethod] = useState("");
+  const [Confirmations, setConfirmations] = useState(false);
 
   const Cal = Amount * (value / 500);
 
@@ -95,10 +96,19 @@ const Donate = () => {
           <p>Total:{totalAmnt}</p>
         </div>
 
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5 ">
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5 "
+          onClick={() => setConfirmations(true)}
+        >
           Proceed Payment
         </button>
-        <ConfirmModel amount={totalAmnt} payMethods={selectedMethod} />
+        {Confirmations ? (
+          <>
+            <ConfirmModel amount={totalAmnt} payMethods={selectedMethod} />
+          </>
+        ) : (
+          <></>
+        )}
 
         {/* <script>
 

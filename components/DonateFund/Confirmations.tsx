@@ -1,4 +1,5 @@
 import React from "react";
+import EsewaForm from "./Esewa";
 type Data = {
   amount: number;
   payMethods: string;
@@ -6,6 +7,10 @@ type Data = {
 const ConfirmModel = (props: Data) => {
   console.log(props.amount);
   console.log(props.payMethods);
-  return <></>;
+  return (
+    <>
+      <EsewaForm />
+    </>
+  );
 };
 export default ConfirmModel;
