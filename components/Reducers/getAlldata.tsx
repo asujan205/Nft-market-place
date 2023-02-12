@@ -45,3 +45,29 @@ const FetchListedNfts = createAsyncThunk("nfts/getListedNfts", async () => {
     newData.push({ ...json, tokenId: myNfts[i].tokenId });
   }
 });
+const FetchBuyedNfts = createAsyncThunk("nfts/getBuyedNfts", async () => {
+  const accounts = await web3.eth.getAccounts();
+  const account = accounts[0];
+  console.log(account);
+  const myNfts = await contract.methods.fetchMyNft().call({ from: account });
+  let newData = [];
+  for (let i = 0; i < myNfts.length; i++) {
+    const tokenUri = await contract.methods.tokenURI(myNfts[i].tokenId).call();
+    const metadataResponse = await fetch(ipfsToHTTPS(tokenUri));
+    if (metadataResponse.status != 200) return;
+    const json = await metadataResponse.json();
+
+    newData.push({ ...json, tokenId: myNfts[i].tokenId });
+  }
+});
+
+const CreateNfts = createAsyncThunk("nfts/createNfts", async (data: any) => {
+  const accounts = await web3.eth.getAccounts();
+  const account = accounts[0];
+  console.log(account);
+  const price = web3.utils.toWei(data.price, "ether");
+  const createNft = await contract.methods
+    .createNft(data.name, data.description, data.image, price)
+    .send({ from: account, value: 25000000000000000 });
+  console.log(createNft);
+});
