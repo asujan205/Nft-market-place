@@ -112,3 +112,7 @@ export const nftsSlice = createSlice({
       });
   },
 });
+
+export const {} = nftsSlice.actions;
+export { FetchAllNfts, FetchListedNfts, FetchBuyedNfts, CreateNfts };
+export default nftsSlice.reducer;
