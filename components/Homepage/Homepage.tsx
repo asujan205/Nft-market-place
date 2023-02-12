@@ -28,6 +28,8 @@ const Homepage: any = () => {
 
   useEffect(() => {
     const fetchAllNfts = async () => {
+      const newData = dispatch(FetchAllNfts());
+
       // const Data = await contract.methods.fectchMarketNft().call();
       // console.log(Data);
       // let newData = [];
@@ -48,7 +50,7 @@ const Homepage: any = () => {
       //   //  json]
       //   //     )
       // }
-      // setMetadata(newData);
+      setMetadata(newData);
     };
 
     fetchAllNfts();
