@@ -27,3 +27,21 @@ const FetchAllNfts = createAsyncThunk("nfts/getAllNfts", async () => {
   }
   return newData;
 });
+
+const FetchListedNfts = createAsyncThunk("nfts/getListedNfts", async () => {
+  const accounts = await web3.eth.getAccounts();
+  const account = accounts[0];
+  console.log(account);
+  const myNfts = await contract.methods
+    .fetchItemsListed()
+    .call({ from: account });
+  let newData = [];
+  for (let i = 0; i < myNfts.length; i++) {
+    const tokenUri = await contract.methods.tokenURI(myNfts[i].tokenId).call();
+    const metadataResponse = await fetch(ipfsToHTTPS(tokenUri));
+    if (metadataResponse.status != 200) return;
+    const json = await metadataResponse.json();
+
+    newData.push({ ...json, tokenId: myNfts[i].tokenId });
+  }
+});
