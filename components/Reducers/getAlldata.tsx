@@ -67,7 +67,7 @@ const CreateNfts = createAsyncThunk("nfts/createNfts", async (data: any) => {
   console.log(account);
   const price = web3.utils.toWei(data.price, "ether");
   const createNft = await contract.methods
-    .createNft(data.name, data.description, data.image, price)
+    .createNft(data.mapuri, price)
     .send({ from: account, value: 25000000000000000 });
   console.log(createNft);
 });
