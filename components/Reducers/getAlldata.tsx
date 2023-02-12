@@ -71,3 +71,44 @@ const CreateNfts = createAsyncThunk("nfts/createNfts", async (data: any) => {
     .send({ from: account, value: 25000000000000000 });
   console.log(createNft);
 });
+
+export const nftsSlice = createSlice({
+  name: "nfts",
+  initialState: {
+    allNfts: [],
+    listedNfts: [],
+    buyedNfts: [],
+    status: null,
+  },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(FetchAllNfts.pending, (state: any) => {
+        state.status = "loading";
+      })
+      .addCase(FetchAllNfts.fulfilled, (state: any, action: any) => {
+        state.status = "success";
+        state.allNfts = action.payload;
+      })
+      .addCase(FetchListedNfts.pending, (state: any) => {
+        state.status = "loading";
+      })
+      .addCase(FetchListedNfts.fulfilled, (state: any, action: any) => {
+        state.status = "success";
+        state.listedNfts = action.payload;
+      })
+      .addCase(FetchBuyedNfts.pending, (state: any) => {
+        state.status = "loading";
+      })
+      .addCase(FetchBuyedNfts.fulfilled, (state: any, action: any) => {
+        state.status = "success";
+        state.buyedNfts = action.payload;
+      })
+      .addCase(CreateNfts.pending, (state: any) => {
+        state.status = "loading";
+      })
+      .addCase(CreateNfts.fulfilled, (state: any, action: any) => {
+        state.status = "success";
+      });
+  },
+});
