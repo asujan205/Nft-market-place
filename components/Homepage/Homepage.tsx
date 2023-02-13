@@ -22,8 +22,8 @@ const Homepage: any = () => {
   useEffect(() => {
     const fetchAllNfts = async () => {
       const newData = dispatch(FetchAllNfts());
-      const muji = (await newData).payload;
-      setMetadata(muji);
+
+      setMetadata((await newData).payload);
     };
 
     fetchAllNfts();
