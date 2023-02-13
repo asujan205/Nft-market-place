@@ -1,16 +1,7 @@
 import React, { useEffect, useState } from "react";
-// import Image from "next/image";
-// import useNftUri from "../getUri";
-// import Web3 from "web3";
-// import { NftAbi } from "../../NftAbi";
-// import { ipfsToHTTPS } from "../Helper";
 
 import NftCard from "../MiniComponents/NftCard";
 import { FetchAllNfts } from "../Reducers/getAlldata";
-
-// const web3 = new Web3(Web3.givenProvider || "http://localhost:7545");
-// const contractAddress = "0xBC98199BB6820dF2a57E9A417542142b6c1A46D6";
-// const contract = new web3.eth.Contract(NftAbi, contractAddress);
 
 import useConnected from "./useConnected";
 import { useDispatch } from "react-redux";
@@ -31,27 +22,6 @@ const Homepage: any = () => {
   useEffect(() => {
     const fetchAllNfts = async () => {
       const newData = dispatch(FetchAllNfts());
-
-      // const Data = await contract.methods.fectchMarketNft().call();
-      // console.log(Data);
-      // let newData = [];
-      // for (let i = 0; i < Data.length; i++) {
-      //   const tokenUri = await contract.methods
-      //     .tokenURI(Data[i].tokenId)
-      //     .call();
-      //   const metadataResponse = await fetch(ipfsToHTTPS(tokenUri));
-      //   if (metadataResponse.status != 200) return;
-      //   const json = await metadataResponse.json();
-      //   newData.push({
-      //     ...json,
-      //     tokenId: Data[i].tokenId,
-      //     money: Data[i].price,
-      //   });
-      //   //     setMetadata((prev)=>
-      //   //     [...prev,
-      //   //  json]
-      //   //     )
-      // }
       const muji = (await newData).payload;
       setMetadata(muji);
     };
@@ -82,16 +52,6 @@ const Homepage: any = () => {
                   imageUrl={item.image}
                 />
 
-                {/* <p key={key}>{item.name}</p>
-            <img
-              src={ipfsToHTTPS(item.image)}
-              alt="nfts"
-              width={45}
-              height={50}
-              key={key}
-            />
-            <p key={key}>{item.description}</p>
-            <p key={key}>{item.money}</p> */}
                 <button
                   onClick={() => BuyNfts(item.tokenId)}
                   className="h-15 rounded-lg bg-sujan-100 px-10 py-2 pl-3 text-xl font-semibold text-white"
