@@ -10,7 +10,6 @@ const contract = new web3.eth.Contract(NftAbi, contractAddress);
 const FetchAllNfts = createAsyncThunk("nfts/getAllNfts", async () => {
   const Data = await contract.methods.fectchMarketNft().call();
 
-  console.log(Data);
   let newData = [];
 
   for (let i = 0; i < Data.length; i++) {
@@ -31,7 +30,7 @@ const FetchAllNfts = createAsyncThunk("nfts/getAllNfts", async () => {
 const FetchListedNfts = createAsyncThunk("nfts/getListedNfts", async () => {
   const accounts = await web3.eth.getAccounts();
   const account = accounts[0];
-  console.log(account);
+
   const myNfts = await contract.methods
     .fetchItemsListed()
     .call({ from: account });
@@ -44,11 +43,12 @@ const FetchListedNfts = createAsyncThunk("nfts/getListedNfts", async () => {
 
     newData.push({ ...json, tokenId: myNfts[i].tokenId });
   }
+  return newData;
 });
 const FetchBuyedNfts = createAsyncThunk("nfts/getBuyedNfts", async () => {
   const accounts = await web3.eth.getAccounts();
   const account = accounts[0];
-  console.log(account);
+
   const myNfts = await contract.methods.fetchMyNft().call({ from: account });
   let newData = [];
   for (let i = 0; i < myNfts.length; i++) {
@@ -59,6 +59,7 @@ const FetchBuyedNfts = createAsyncThunk("nfts/getBuyedNfts", async () => {
 
     newData.push({ ...json, tokenId: myNfts[i].tokenId });
   }
+  return newData;
 });
 
 const CreateNfts = createAsyncThunk("nfts/createNfts", async (data: any) => {

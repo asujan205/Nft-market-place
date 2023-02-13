@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 // import { ipfsToHTTPS } from "../Helper";
 
 import NftCard from "../MiniComponents/NftCard";
+import { FetchAllNfts } from "../Reducers/getAlldata";
 
 // const web3 = new Web3(Web3.givenProvider || "http://localhost:7545");
 // const contractAddress = "0xBC98199BB6820dF2a57E9A417542142b6c1A46D6";
@@ -13,6 +14,7 @@ import NftCard from "../MiniComponents/NftCard";
 
 import useConnected from "./useConnected";
 import { useDispatch } from "react-redux";
+import { ThunkDispatch } from "@reduxjs/toolkit";
 
 type NFTMetadata = {
   name: string;
@@ -21,7 +23,7 @@ type NFTMetadata = {
   price: number;
 };
 const Homepage: any = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
   const checkArray = useConnected();
   const [metaData, setMetadata] = useState<any[]>([]);
   const [fetZero, setFetchZer] = useState(0);
@@ -50,13 +52,12 @@ const Homepage: any = () => {
       //   //  json]
       //   //     )
       // }
-      setMetadata(newData);
+      const muji = (await newData).payload;
+      setMetadata(muji);
     };
 
     fetchAllNfts();
   }, [fetZero]);
-
-  console.log(metaData);
 
   const BuyNfts = async (key: any) => {
     // const accounts = await web3.eth.getAccounts();
@@ -67,7 +68,6 @@ const Homepage: any = () => {
     // console.log(BuyNfts);
   };
 
-  console.log(metaData);
   return (
     <>
       <div className="flex flex-wrap space-x-10 mx-auto justify-center	mt-10">
