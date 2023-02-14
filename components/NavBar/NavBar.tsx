@@ -1,5 +1,6 @@
 import React, { ReactComponentElement, useState } from "react";
 import Link from "next/link";
+import ConnectWallet from "../Connecttowallet/Index";
 type NavComponents = {
   Homepage: any;
   Create: any;
@@ -49,6 +50,7 @@ const NavBar = ({ setHomeActive, setCreateActive, setMyNftsActive }: any) => {
                 Mycollections
               </button>
             </li>
+            <ConnectWallet />
           </ul>
         </div>
       </nav>
