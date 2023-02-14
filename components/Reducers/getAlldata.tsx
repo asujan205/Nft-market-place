@@ -74,6 +74,14 @@ const CreateNfts = createAsyncThunk("nfts/createNfts", async (data: any) => {
     .send({ from: account, value: 25000000000000000 });
   console.log(createNft);
 });
+const BuyNfts = createAsyncThunk("nfts/buyNfts", async (data: any) => {
+  const accounts = await web3.eth.getAccounts();
+  const account = accounts[0];
+  const BuyNfts = await contract.methods
+    .createMarketSell(data.key)
+    .send({ from: account, value: 20 });
+  console.log(BuyNfts);
+});
 
 export const nftsSlice = createSlice({
   name: "nfts",
@@ -112,10 +120,16 @@ export const nftsSlice = createSlice({
       })
       .addCase(CreateNfts.fulfilled, (state: any, action: any) => {
         state.status = "success";
+      })
+      .addCase(BuyNfts.pending, (state: any, action: any) => {
+        state.status = "loading";
+      })
+      .addCase(BuyNfts.fulfilled, (state: any, action: any) => {
+        state.status = "success";
       });
   },
 });
 
 export const {} = nftsSlice.actions;
-export { FetchAllNfts, FetchListedNfts, FetchBuyedNfts, CreateNfts };
+export { FetchAllNfts, FetchListedNfts, FetchBuyedNfts, CreateNfts, BuyNfts };
 export default nftsSlice.reducer;

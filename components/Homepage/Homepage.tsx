@@ -30,12 +30,7 @@ const Homepage: any = () => {
   }, [fetZero]);
 
   const BuyNfts = async (key: any) => {
-    // const accounts = await web3.eth.getAccounts();
-    // const account = accounts[0];
-    // const BuyNfts = await contract.methods
-    //   .createMarketSell(key)
-    //   .send({ from: account, value: 20 });
-    // console.log(BuyNfts);
+    dispatch(BuyNfts({ key }));
   };
 
   return (
