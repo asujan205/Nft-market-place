@@ -6,7 +6,12 @@ type NavComponents = {
   mynfts: any;
 };
 
-const NavBar = () => {
+const NavBar = ({ Homepage, Create, mynfts }: NavComponents) => {
+  const [active, setActive] = useState(false);
+  const ShowActive = () => {
+    setActive(!active);
+  };
+
   return (
     <>
       <nav className="bg-white border-gray-1 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">

@@ -1,10 +1,13 @@
 import React, { SyntheticEvent, useRef, useState } from "react";
 import { NftAbi } from "../../NftAbi";
-import Web3 from "web3";
-const web3 = new Web3(Web3.givenProvider || "http://localhost:7545");
-const contractAddress = "0xBC98199BB6820dF2a57E9A417542142b6c1A46D6";
-const contract = new web3.eth.Contract(NftAbi, contractAddress);
-import styles from "../../Cssfolder/UploadLabLe.module.css";
+import { CreateNfts } from "../Reducers/getAlldata";
+import { useDispatch } from "react-redux";
+import { ThunkDispatch } from "@reduxjs/toolkit";
+// import Web3 from "web3";
+// const web3 = new Web3(Web3.givenProvider || "http://localhost:7545");
+// const contractAddress = "0xBC98199BB6820dF2a57E9A417542142b6c1A46D6";
+// const contract = new web3.eth.Contract(NftAbi, contractAddress);
+// import styles from "../../Cssfolder/UploadLabLe.module.css";
 
 //import * as Yup from 'yup'
 // import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -27,6 +30,7 @@ const CreationForm = () => {
   const [price, setPrice] = useState<string>();
   const [preiview, setPrieveiw] = useState<boolean>(true);
   const [url, setFile] = useState<string>();
+  const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
 
   // const data = new FormData();
   const handleFileInput = (
@@ -50,19 +54,18 @@ const CreationForm = () => {
       body: formData,
     });
     if (res.ok) {
-      const data = await res.json();
-      const mapuri = data.uri;
-      //  console.log(price)
-      const listing = String(0.025 * Math.pow(10, 18));
-      const accounts = await web3.eth.getAccounts();
-      const account = accounts[0];
-
-      console.log(mapuri);
-      const dataS = await contract.methods.createNft(mapuri, price).send({
-        from: account,
-        value: 25000000000000000,
-      });
-      console.log(dataS);
+      // const data = await res.json();
+      // const mapuri = data.uri;
+      // //  console.log(price)
+      // const listing = String(0.025 * Math.pow(10, 18));
+      // const accounts = await web3.eth.getAccounts();
+      // const account = accounts[0];
+      // console.log(mapuri);
+      // const dataS = await contract.methods.createNft(mapuri, price).send({
+      //   from: account,
+      //   value: 25000000000000000,
+      // });
+      // console.log(dataS);
     }
   };
 
