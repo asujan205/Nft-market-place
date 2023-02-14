@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import NftCard from "../MiniComponents/NftCard";
-import { FetchAllNfts } from "../Reducers/getAlldata";
+import { FetchAllNfts, BuyNftss } from "../Reducers/getAlldata";
 
 import useConnected from "./useConnected";
 import { useDispatch } from "react-redux";
@@ -29,8 +29,9 @@ const Homepage: any = () => {
     fetchAllNfts();
   }, [fetZero]);
 
-  const BuyNfts = async (key: any) => {
-    dispatch(BuyNfts({ key }));
+  const BuyNfts = (key: any) => {
+    console.log(key);
+    dispatch(BuyNftss({ key }));
   };
 
   return (
