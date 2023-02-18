@@ -10,7 +10,7 @@ const ConnectBtn = () => {
 
   return (
     <div>
-      <ConnectWallet onConnect={handleConnect} />
+      <ConnectWallet onConnect={handleConnect} /> your wallet address is
       {walletAddress && <p>Wallet address: {walletAddress}</p>}
     </div>
   );
