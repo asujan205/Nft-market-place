@@ -44,7 +44,7 @@ const ConnectWallet = ({ onConnect }: any) => {
       {!web3 ? (
         <p>No Web3 provider found</p>
       ) : accounts.length === 0 ? (
-        <button onClick={handleConnect}>Connect to Wallet</button>
+        <button onClick={handleConnect}>Connect to Wallet hello sujan</button>
       ) : (
         <p className="text-gray-50">Connected: {accounts[0]}</p>
       )}
