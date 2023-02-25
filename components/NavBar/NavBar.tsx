@@ -8,7 +8,12 @@ type NavComponents = {
   mynfts: any;
 };
 
-const NavBar = ({ setHomeActive, setCreateActive, setMyNftsActive }: any) => {
+const NavBar = ({
+  setHomeActive,
+  setCreateActive,
+  setMyNftsActive,
+  setSwapActive,
+}: any) => {
   return (
     <>
       <nav className="bg-white border-gray-1 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
@@ -22,6 +27,7 @@ const NavBar = ({ setHomeActive, setCreateActive, setMyNftsActive }: any) => {
                   setHomeActive(true);
                   setCreateActive(false);
                   setMyNftsActive(false);
+                  setSwapActive(false);
                 }}
               >
                 Home
@@ -34,6 +40,7 @@ const NavBar = ({ setHomeActive, setCreateActive, setMyNftsActive }: any) => {
                   setCreateActive(true);
                   setHomeActive(false);
                   setMyNftsActive(false);
+                  setSwapActive(false);
                 }}
               >
                 CreateNfts
@@ -46,12 +53,25 @@ const NavBar = ({ setHomeActive, setCreateActive, setMyNftsActive }: any) => {
                   setMyNftsActive(true);
                   setHomeActive(false);
                   setCreateActive(false);
+                  setSwapActive(false);
                 }}
               >
                 Mycollections
               </button>
             </li>
-            <ConnectBtn />
+            <li>
+              <button
+                className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                onClick={() => {
+                  setMyNftsActive(false);
+                  setHomeActive(false);
+                  setCreateActive(false);
+                  setSwapActive(true);
+                }}
+              >
+                Swap
+              </button>
+            </li>
           </ul>
         </div>
       </nav>
