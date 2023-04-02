@@ -9,21 +9,20 @@ import NftCard from "../MiniComponents/NftCard";
 const contract_address = "0x6B7A18e252510bDFD484C5Eae953d2DE05d71B8B";
 const web3 = new Web3(Web3.givenProvider || "http://localhost:7545");
 const contract = new web3.eth.Contract(swapabi, contract_address);
-const Nfts_contract = "0xF3Ac72766E2aF83B7cDA4A613beDF2bF83DEe9fA";
+const Nfts_contract = "0xBC98199BB6820dF2a57E9A417542142b6c1A46D6";
 
 const Createswap = (tokenId: any) => {
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
 
-  const [nfts, setMyNfts] = useState([]);
-  const createSwap = async () => {
+  const [nfts, setMyNfts] = useState([]); // nfts is the state variable and setMyNfts is the function to update the state variablevffk
+  const createSwap = async (tokenId: any) => {
     const accounts = await web3.eth.getAccounts();
     const account = accounts[0];
     const swap = await contract.methods
       .CreateSwap("0x3a80c594300d3b048e49db9deb1088655df243f2", [
-        { contractAddr: Nfts_contract, id: tokenId, amount: 1 },
+        ["0xBC98199BB6820dF2a57E9A417542142b6c1A46D6", 1, 0],
       ])
-      .send({ from: account });
-    console.log(swap);
+      .send({ from: account, value: 1000000000000000000 });
   };
 
   useEffect(() => {
