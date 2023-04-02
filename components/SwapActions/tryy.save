@@ -1,0 +1,129 @@
+import Modal from 'components/ui/Modal'
+import axios from 'axios'
+import { useState } from 'react'
+
+import { PrismaClient } from 'db'
+const prisma = new PrismaClient()
+
+const NewCampaign = ({ open, close, state }) => {
+  const [title, setTitle] = useState('')
+  const [description, setDescription] = useState('')
+  const [image, setImage] = useState('')
+  const [goal, setGoal] = useState(0)
+  const [story, setStory] = useState('')
+  const [endDate, setEndDate] = useState(new Date())
+
+  const handleImageUpload = async (event: any) => {
+    const file = event.target.files[0]
+    const formData = new FormData()
+    formData.append('file', file)
+    formData.append('upload_preset', 'ml_default')
+
+    const response = await axios.post('https://api.cloudinary.com/v1_1/dp4graubh/image/upload', formData)
+    setImage(response.data.secure_url)
+  }
+
+  const createFundrise = async () => {}
+
+  return (
+    <Modal isOpen={state} close={close}>
+      <div className='w-40 h-40'>
+        <h2>Create new campaign</h2>
+
+        <div className='mb-4'>
+          <label htmlFor='title' className='block text-gray-700 font-bold mb-2'>
+            Title
+          </label>
+          <input
+            type='text'
+            id='title'
+            value={title}
+            onChange={(event) => setTitle(event.target.value)}
+            className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+          />
+        </div>
+        <div className='mb-4'>
+          <label htmlFor='description' className='block text-gray-700 font-bold mb-2'>
+            Description
+          </label>
+          <input
+            type='text'
+            id='description'
+            value={description}
+            onChange={(event) => setDescription(event.target.value)}
+            className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+          />
+        </div>
+        <div className='mb-4'>
+          <div className='flex flex-col gap-4'>
+            <label htmlFor='imageUpload' className='font-medium'>
+              Upload Image
+            </label>
+            <div className='flex items-center justify-between'>
+              <input
+                id='imageUpload'
+                name='imageUpload'
+                type='file'
+                accept='image/*'
+                onChange={handleImageUpload}
+                className='sr-only'
+              />
+              <label
+                htmlFor='imageUpload'
+                className='inline-block px-4 py-2 text-white bg-indigo-500 rounded-md cursor-pointer hover:bg-indigo-600 focus:bg-indigo-600'
+              >
+                Choose File
+              </label>
+              {image && <span className='text-green-500 font-medium'>{image}</span>}
+            </div>
+          </div>
+        </div>
+        <div className='mb-4'>
+          <label htmlFor='goal' className='block text-gray-700 font-bold mb-2'>
+            Goal Amount
+          </label>
+          <input
+            type='number'
+            id='goal'
+            value={goal}
+            onChange={(event) => setGoal(parseInt(event.target.value))}
+            className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+          />
+        </div>
+        <div className='mb-4'>
+          <label htmlFor='story' className='block text-gray-700 font-bold mb-2'>
+            Story
+          </label>
+          <textarea
+            id='story'
+            className='border border-gray-400 p-2 w-full'
+            value={story}
+            onChange={(event) => setStory(event.target.value)}
+          />
+        </div>
+        <div className='mb-4'>
+          <label htmlFor='endDate' className='block font-bold mb-2'>
+            End Date
+          </label>
+          <input
+            type='datetime-local'
+            id='endDate'
+            className='border border-gray-400 p-2 w-full'
+            value={endDate.toISOString().substr(0, 16)}
+            onChange={(event) => setEndDate(new Date(event.target.value))}
+          />
+        </div>
+        <button
+          className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+          onClick={() => {
+            createFundrise()
+          }}
+        >
+          Create
+        </button>
+      </div>
+    </Modal>
+  )
+}
+
+export default NewCampaign
