@@ -9,8 +9,6 @@ const web3 = new Web3(node);
 
 const account = web3.eth.accounts.create();
 
-const address = account.address;
-
 const web = new Web3(Web3.givenProvider || "http://localhost:7545");
 
 const MiniWallet = () => {
