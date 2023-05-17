@@ -6,6 +6,7 @@ import OwnedNfts from "../components/FetchMynfts/Index";
 import Homepage from "../components/Homepage/Homepage";
 import NavBar from "../components/NavBar/NavBar";
 import Createswap from "../components/SwapActions";
+import PratnerLive from "../components/StakingTest/pratnerStacking";
 
 export default function Home() {
   const [Flag, setFlag] = useState<boolean>(false);
@@ -16,7 +17,8 @@ export default function Home() {
   const [SwapActive, setSwapActive] = useState<boolean>(false);
   return (
     <>
-      <NavBar
+      <PratnerLive />
+      {/* <NavBar
         setHomeActive={setHomeActive}
         setCreateActive={setCreateActive}
         setMyNftsActive={setMyNftsActive}
@@ -25,7 +27,7 @@ export default function Home() {
       {HomeActive && <Homepage />}
       {CreateActive && <CreationForm />}
       {MyNftsActive && <OwnedNfts />}
-      {SwapActive && <Createswap />}
+      {SwapActive && <Createswap />} */}
     </>
   );
 }
