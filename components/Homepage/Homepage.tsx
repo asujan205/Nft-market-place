@@ -23,7 +23,7 @@ const Homepage: any = () => {
     const fetchAllNfts = async () => {
       const newData = dispatch(FetchAllNfts());
 
-      setMetadata((await newData).payload);
+      setMetadata((await newData).payload as any[]);
     };
 
     fetchAllNfts();

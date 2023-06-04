@@ -13,7 +13,7 @@ const FetchUserNft = () => {
   const fetchNfts = async () => {
     const newData = dispatch(FetchBuyedNfts());
 
-    setMynfts((await newData).payload);
+    setMynfts((await newData).payload as any[]);
   };
   useEffect(() => {
     fetchNfts();

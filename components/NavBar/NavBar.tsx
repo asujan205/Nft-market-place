@@ -1,7 +1,7 @@
 import React, { ReactComponentElement, useState } from "react";
 import Link from "next/link";
-import ConnectWallet from "../Connecttowallet/ConnectWallet";
-import ConnectBtn from "../Connecttowallet/Props";
+// import ConnectWallet from "../Connecttowallet/ConnectWallet";
+// import ConnectBtn from "../Connecttowallet/Props";
 type NavComponents = {
   Homepage: any;
   Create: any;

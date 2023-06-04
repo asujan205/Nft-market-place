@@ -13,7 +13,7 @@ const FetchListed = () => {
     const fetchAllNfts = async () => {
       const newData = dispatch(FetchListedNfts());
 
-      setNfts((await newData).payload);
+      setNfts((await newData).payload as any[]);
     };
 
     fetchAllNfts();
