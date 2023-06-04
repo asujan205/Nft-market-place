@@ -2,11 +2,11 @@ import { useState } from "react";
 import Web3 from "web3";
 import CreationForm from "../components/CreationNft/creation";
 
-import OwnedNfts from "../components/FetchMynfts/Index";
-import Homepage from "../components/Homepage/Homepage";
+import OwnedNfts from "../components/FetchMynfts";
+import Homepage from "../components/Homepage/homepage";
 import NavBar from "../components/NavBar/NavBar";
 import Createswap from "../components/SwapActions";
-import PratnerLive from "../components/StakingTest/pratnerStacking";
+// import PratnerLive from "../components/StakingTest/pratnerStacking";
 
 export default function Home() {
   const [Flag, setFlag] = useState<boolean>(false);
