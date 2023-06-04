@@ -17,8 +17,7 @@ export default function Home() {
   const [SwapActive, setSwapActive] = useState<boolean>(false);
   return (
     <>
-      <PratnerLive />
-      {/* <NavBar
+      <NavBar
         setHomeActive={setHomeActive}
         setCreateActive={setCreateActive}
         setMyNftsActive={setMyNftsActive}
@@ -27,7 +26,7 @@ export default function Home() {
       {HomeActive && <Homepage />}
       {CreateActive && <CreationForm />}
       {MyNftsActive && <OwnedNfts />}
-      {SwapActive && <Createswap />} */}
+      {SwapActive && <Createswap />}
     </>
   );
 }
