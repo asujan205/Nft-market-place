@@ -4,7 +4,7 @@ import CreationForm from "../components/CreationNft/creation";
 
 import OwnedNfts from "../components/FetchMynfts";
 import Homepage from "../components/Homepage/homepage";
-import NavBar from "../components/NavBar/NavBar";
+import NavBar from "../components/NavBar/navBar";
 import Createswap from "../components/SwapActions";
 // import PratnerLive from "../components/StakingTest/pratnerStacking";
 
