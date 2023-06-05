@@ -5,9 +5,7 @@ import { ipfsToHTTPS } from "../Helper";
 
 // const web3 = new Web3(Web3.givenProvider || "http://localhost:7545");
 const web3 = new Web3(
-  Web3.givenProvider ||
-    "https://rpc-mumbai.maticvigil.com" ||
-    "http://localhost:7545"
+  Web3.givenProvider || "https://rpc-mumbai.maticvigil.com"
 );
 
 const contractAddress = "0x20445D2A57e8251ec17e9A6e111a021167fD1981";
