@@ -1,68 +1,63 @@
 .uploadlabel {
-    background-color: #ccc;
-    color: white;
-    height: 10rem;
-    width: 5rem;
-    border-radius: 1rem;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    width: 25rem;
-    border: dashed 2px black;
-    margin-left: 10px;
-    /* backgroundColor: #ccc,
-    color: "white",
-    padding: "5rem 8rem",
-    borderRadius: "0.3rem",
-    cursor: "pointer",
-    display:"flex",
-    justifyContent:"center",
-    width:"25rem",
-    border: "dashed 2px black" */
-
+  background-color: #ccc;
+  color: white;
+  height: 10rem;
+  width: 5rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  width: 25rem;
+  border: dashed 2px black;
+  margin-left: 10px;
+  /* backgroundColor: #ccc,
+      color: "white",
+      padding: "5rem 8rem",
+      borderRadius: "0.3rem",
+      cursor: "pointer",
+      display:"flex",
+      justifyContent:"center",
+      width:"25rem",
+      border: "dashed 2px black" */
 }
 .namefield {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    width: 25rem;
-    height: 1rem;
-    border-radius: 0.3rem;
-    border: 1px solid rgb(105, 53, 80);
-    padding: 1rem;
-    margin-left: 10px;
- 
-    
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 25rem;
+  height: 1rem;
+  border-radius: 0.3rem;
+  border: 1px solid rgb(105, 53, 80);
+  padding: 1rem;
+  margin-left: 10px;
 }
-.descriptionField{
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    width: 25rem;
-    height: 5rem;
-    border-radius: 0.3rem;
-    border: 1px solid rgb(105, 53, 80);
-    padding: 1rem;
-    margin-left: 10px;
+.descriptionField {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 25rem;
+  height: 5rem;
+  border-radius: 0.3rem;
+  border: 1px solid rgb(105, 53, 80);
+  padding: 1rem;
+  margin-left: 10px;
 }
-.priceFeild{
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    width: 25rem;
-    height: 1rem;
-    border-radius: 0.3rem;
-    border: 1px solid rgb(105, 53, 80);
-    padding: 1rem;
-    margin-left: 10px;
+.priceFeild {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 25rem;
+  height: 1rem;
+  border-radius: 0.3rem;
+  border: 1px solid rgb(105, 53, 80);
+  padding: 1rem;
+  margin-left: 10px;
 }
-.Sumbitbtn
-{
-    width: 10rem;
-    height: 30px;
-    border-radius: 0.3rem;
-    border: 1px solid rgb(105, 53, 80);
-    background-color: rgb(172, 150, 161);
-    margin-left: 150px;
+.Sumbitbtn {
+  width: 10rem;
+  height: 30px;
+  border-radius: 0.3rem;
+  border: 1px solid rgb(105, 53, 80);
+  background-color: rgb(172, 150, 161);
+  margin-left: 150px;
 }
-.previewImage{
-
-    object-fit: contain;
+.previewImage {
+  object-fit: contain;
 }
