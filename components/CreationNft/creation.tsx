@@ -7,7 +7,7 @@ import { ThunkDispatch } from "@reduxjs/toolkit";
 // const web3 = new Web3(Web3.givenProvider || "http://localhost:7545");
 // const contractAddress = "0xBC98199BB6820dF2a57E9A417542142b6c1A46D6";
 // const contract = new web3.eth.Contract(NftAbi, contractAddress);
-import styles from "../../Cssfolder/uploadLabLe.module.css";
+import styles from "../Cssfolder/uploadLabLe.module.css";
 
 const CreationForm = () => {
   const formRef = useRef<any>(null);
