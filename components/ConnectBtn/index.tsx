@@ -12,7 +12,7 @@ const ConnectBtn = () => {
       const providerOptions = {}; // Add specific provider options if needed
 
       const web3Modal = new Web3Modal({
-        network: "mainnet", // Specify the desired network
+        network: "polygon testnet", // Specify the desired network
         cacheProvider: true,
         providerOptions,
       });
