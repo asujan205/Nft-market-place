@@ -5,6 +5,7 @@ import Web3 from "web3";
 const ConnectBtn = () => {
   const [account, setAccount] = useState<string | null>(null);
   const [isConnected, setIsConnected] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const connectWallet = async () => {
     try {
@@ -35,10 +36,20 @@ const ConnectBtn = () => {
         web3Modal.clearCachedProvider();
         setAccount(null);
         setIsConnected(false);
+        setIsDropdownOpen(false);
       });
     } catch (error) {
       console.error("Failed to connect wallet:", error);
     }
+  };
+  const disconnectWallet = () => {
+    const web3Modal = new Web3Modal();
+    web3Modal.clearCachedProvider();
+    setAccount(null);
+    setIsConnected(false);
+  };
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
   };
 
   return (
@@ -50,9 +61,20 @@ const ConnectBtn = () => {
               className="w-8 h-8 rounded-full mr-2"
               src={`https://avatars.dicebear.com/api/identicon/${account}.svg`}
               alt="User Avatar"
+              onClick={toggleDropdown}
             />
             <p className=" text-white font-bold py-2 px-4">{account}</p>
           </div>
+          {isDropdownOpen && (
+            <div className="absolute top-0 right-0 mt-8 mr-2 bg-white rounded shadow">
+              <button
+                className="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left"
+                onClick={disconnectWallet}
+              >
+                Disconnect Wallet
+              </button>
+            </div>
+          )}
         </>
       ) : (
         <button
