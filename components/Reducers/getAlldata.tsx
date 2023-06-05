@@ -2,16 +2,29 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import Web3 from "web3";
 import { NftAbi } from "../../NftAbi";
 import { ipfsToHTTPS } from "../Helper";
+import Web3Modal from "web3modal";
 
 // const web3 = new Web3(Web3.givenProvider || "http://localhost:7545");
 const web3 = new Web3(
   Web3.givenProvider || "https://rpc-mumbai.maticvigil.com"
 );
+const web3Modal = new Web3Modal({
+  cacheProvider: true,
+});
+
+async function getProvider() {
+  const provider = await web3Modal.connect();
+  return provider;
+}
 
 const contractAddress = "0x20445D2A57e8251ec17e9A6e111a021167fD1981";
 const contract = new web3.eth.Contract(NftAbi, contractAddress);
-
 const FetchAllNfts = createAsyncThunk("nfts/getAllNfts", async () => {
+  const provider = await getProvider();
+  const web3 = new Web3(provider || "https://rpc-mumbai.maticvigil.com");
+
+  const contractAddress = "0x20445D2A57e8251ec17e9A6e111a021167fD1981";
+  const contract = new web3.eth.Contract(NftAbi, contractAddress);
   const Data = await contract.methods.fectchMarketNft().call();
 
   let newData = [];
