@@ -9,7 +9,7 @@ import { ipfsToHTTPS } from "../Helper";
 //     "https://rpc-mumbai.maticvigil.com" ||
 //     "http://localhost:7545"
 // );
-// const metamaskWeb3 = new Web3(Web3.givenProvider || "http://localhost:7545");
+const metamaskWeb3 = new Web3(Web3.givenProvider || "http://localhost:7545");
 const web3 = new Web3(
   Web3.givenProvider ||
     new Web3.providers.HttpProvider("https://rpc-mumbai.maticvigil.com")
@@ -39,7 +39,7 @@ const FetchAllNfts = createAsyncThunk("nfts/getAllNfts", async () => {
 });
 
 const FetchListedNfts = createAsyncThunk("nfts/getListedNfts", async () => {
-  const accounts = await web3.eth.getAccounts();
+  const accounts = await metamaskWeb3.eth.getAccounts();
   const account = accounts[0];
 
   const myNfts = await contract.methods
@@ -57,7 +57,7 @@ const FetchListedNfts = createAsyncThunk("nfts/getListedNfts", async () => {
   return newData;
 });
 const FetchBuyedNfts = createAsyncThunk("nfts/getBuyedNfts", async () => {
-  const accounts = await web3.eth.getAccounts();
+  const accounts = await metamaskWeb3.eth.getAccounts();
   const account = accounts[0];
 
   const myNfts = await contract.methods.fetchMyNft().call({ from: account });
@@ -74,7 +74,7 @@ const FetchBuyedNfts = createAsyncThunk("nfts/getBuyedNfts", async () => {
 });
 
 const CreateNfts = createAsyncThunk("nfts/createNfts", async (data: any) => {
-  const accounts = await web3.eth.getAccounts();
+  const accounts = await metamaskWeb3.eth.getAccounts();
   const account = accounts[0];
 
   console.log(data.mapuri);
@@ -87,7 +87,7 @@ const CreateNfts = createAsyncThunk("nfts/createNfts", async (data: any) => {
 });
 const BuyNftss = createAsyncThunk("nfts/buyNfts", async (data: any) => {
   console.log(data.key);
-  const accounts = await web3.eth.getAccounts();
+  const accounts = await metamaskWeb3.eth.getAccounts();
   const account = accounts[0];
   const BuyNfts = await contract.methods
     .createMarketSell(data.key)
@@ -95,7 +95,7 @@ const BuyNftss = createAsyncThunk("nfts/buyNfts", async (data: any) => {
   console.log(BuyNfts);
 });
 const ResellNfts = createAsyncThunk("nfts/resellNfts", async (data: any) => {
-  const accounta = await web3.eth.getAccounts();
+  const accounta = await metamaskWeb3.eth.getAccounts();
   const account = accounta[0];
   const reSell = await contract.methods
     .reSellToken(data.tokenId, 40)
