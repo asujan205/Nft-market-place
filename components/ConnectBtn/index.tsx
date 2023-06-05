@@ -44,7 +44,16 @@ const ConnectBtn = () => {
   return (
     <div>
       {isConnected ? (
-        <p>Wallet Connected: {account}</p>
+        <>
+          <div className="flex flex-row items-center justify-center">
+            <img
+              className="w-8 h-8 rounded-full mr-2"
+              src={`https://avatars.dicebear.com/api/identicon/${account}.svg`}
+              alt="User Avatar"
+            />
+            <p className=" text-white font-bold py-2 px-4">{account}</p>
+          </div>
+        </>
       ) : (
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
