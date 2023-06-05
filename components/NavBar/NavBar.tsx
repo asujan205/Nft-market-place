@@ -2,6 +2,7 @@ import React, { ReactComponentElement, useState } from "react";
 import Link from "next/link";
 // import ConnectWallet from "../Connecttowallet/ConnectWallet";
 // import ConnectBtn from "../Connecttowallet/Props";
+import ConnectBtn from "../ConnectBtn";
 type NavComponents = {
   Homepage: any;
   Create: any;
@@ -71,6 +72,9 @@ const NavBar = ({
               >
                 Swap
               </button>
+            </li>
+            <li>
+              <ConnectBtn />
             </li>
           </ul>
         </div>
