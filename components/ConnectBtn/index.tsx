@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import Web3Modal from "web3modal";
 import Web3 from "web3";
 
@@ -37,7 +37,9 @@ const ConnectBtn = () => {
         setAccount(null);
         setIsConnected(false);
         setIsDropdownOpen(false);
+        localStorage.removeItem("connectedAccount");
       });
+      localStorage.setItem("connectedAccount", accounts[0]);
     } catch (error) {
       console.error("Failed to connect wallet:", error);
     }
@@ -47,10 +49,18 @@ const ConnectBtn = () => {
     web3Modal.clearCachedProvider();
     setAccount(null);
     setIsConnected(false);
+    localStorage.removeItem("connectedAccount");
   };
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
+  useLayoutEffect(() => {
+    const connectedAccount = localStorage.getItem("connectedAccount");
+    if (connectedAccount) {
+      setAccount(connectedAccount);
+      setIsConnected(true);
+    }
+  }, []);
 
   return (
     <div>
