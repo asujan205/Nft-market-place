@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
 import Web3Modal from "web3modal";
 import Web3 from "web3";
+const POLYGON_TESTNET_NETWORK_ID = 80001;
 
 const ConnectBtn = () => {
   const [account, setAccount] = useState<string | null>(null);
@@ -12,13 +13,30 @@ const ConnectBtn = () => {
       const providerOptions = {}; // Add specific provider options if needed
 
       const web3Modal = new Web3Modal({
-        network: "polygon testnet", // Specify the desired network
         cacheProvider: true,
         providerOptions,
       });
 
       const provider = await web3Modal.connect();
       const web3 = new Web3(provider);
+
+      const networkId = await web3.eth.net.getId();
+      if (networkId !== POLYGON_TESTNET_NETWORK_ID) {
+        const chainId = `0x${POLYGON_TESTNET_NETWORK_ID.toString(16)}`;
+        try {
+          await ethereum.request({
+            method: "wallet_switchEthereumChain",
+            params: [{ chainId }],
+          });
+        } catch (switchError) {
+          if (switchError.code === 4902) {
+            // User rejected network switch
+            return;
+          }
+          console.error("Failed to switch network:", switchError);
+          return;
+        }
+      }
 
       const accounts = await web3.eth.getAccounts();
       setAccount(accounts[0]);
@@ -39,11 +57,13 @@ const ConnectBtn = () => {
         setIsDropdownOpen(false);
         localStorage.removeItem("connectedAccount");
       });
+
       localStorage.setItem("connectedAccount", accounts[0]);
     } catch (error) {
       console.error("Failed to connect wallet:", error);
     }
   };
+
   const disconnectWallet = () => {
     const web3Modal = new Web3Modal();
     web3Modal.clearCachedProvider();
