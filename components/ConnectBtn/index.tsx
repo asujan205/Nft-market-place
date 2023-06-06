@@ -24,11 +24,11 @@ const ConnectBtn = () => {
       if (networkId !== POLYGON_TESTNET_NETWORK_ID) {
         const chainId = `0x${POLYGON_TESTNET_NETWORK_ID.toString(16)}`;
         try {
-          await ethereum.request({
+          await window.ethereum.request({
             method: "wallet_switchEthereumChain",
             params: [{ chainId }],
           });
-        } catch (switchError) {
+        } catch (switchError: any) {
           if (switchError.code === 4902) {
             // User rejected network switch
             return;
