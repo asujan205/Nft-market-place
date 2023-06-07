@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import Web3 from "web3";
 import { NftAbi } from "../../NftAbi";
 import { ipfsToHTTPS } from "../Helper";
+import { swapAbi } from "../../swapabi";
 
 // const web3 = new Web3(Web3.givenProvider || "http://localhost:7545");
 // const web3 = new Web3(
@@ -17,6 +18,7 @@ const web3 = new Web3(
 const contractAddress = "0x20445D2A57e8251ec17e9A6e111a021167fD1981";
 
 const swapAddress = "0x686a6e847cD2412604F6117CA87DD2DCd5A02cAB";
+const swapContract = new web3.eth.Contract(swapAbi, swapAddress);
 const contract = new web3.eth.Contract(NftAbi, contractAddress);
 
 const FetchAllNfts = createAsyncThunk("nfts/getAllNfts", async () => {
@@ -108,21 +110,33 @@ export const CreateSwap = createAsyncThunk(
   async (data: any) => {
     const accounts = await metamaskWeb3.eth.getAccounts();
     const account = accounts[0];
-    const createSwap = await contract.methods
+    const createSwap = await swapContract.methods
       .CreateSwap(data.toAddress, contractAddress, data.tokenId)
       .send({ from: account });
     console.log(createSwap);
   }
 );
 
-const AcceptSwap = createAsyncThunk("nfts/acceptSwap", async (data: any) => {
-  const accounts = await metamaskWeb3.eth.getAccounts();
-  const account = accounts[0];
-  const acceptSwap = await contract.methods
-    .AcceptSwap(data.swapId)
-    .send({ from: account });
-  console.log(acceptSwap);
-});
+export const AcceptSwap = createAsyncThunk(
+  "nfts/acceptSwap",
+  async (data: any) => {
+    const accounts = await metamaskWeb3.eth.getAccounts();
+    const account = accounts[0];
+    const acceptSwap = await swapContract.methods
+      .AcceptSwap(data.swapId)
+      .send({ from: account });
+    console.log(acceptSwap);
+  }
+);
+
+// const RejectSwap = createAsyncThunk("nfts/rejectSwap", async (data: any) => {
+//   const accounts = await metamaskWeb3.eth.getAccounts();
+//   const account = accounts[0];
+//   const rejectSwap = await swapContract.methods
+//     .RejectSwap(data.swapId)
+//     .send({ from: account });
+//   console.log(rejectSwap);
+// });
 
 export const nftsSlice = createSlice({
   name: "nfts",
