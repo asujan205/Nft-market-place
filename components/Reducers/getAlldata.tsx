@@ -15,6 +15,8 @@ const web3 = new Web3(
 );
 
 const contractAddress = "0x20445D2A57e8251ec17e9A6e111a021167fD1981";
+
+const swapAddress = "0x686a6e847cD2412604F6117CA87DD2DCd5A02cAB";
 const contract = new web3.eth.Contract(NftAbi, contractAddress);
 
 const FetchAllNfts = createAsyncThunk("nfts/getAllNfts", async () => {
