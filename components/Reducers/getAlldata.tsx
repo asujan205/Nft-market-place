@@ -115,6 +115,15 @@ export const CreateSwap = createAsyncThunk(
   }
 );
 
+const AcceptSwap = createAsyncThunk("nfts/acceptSwap", async (data: any) => {
+  const accounts = await metamaskWeb3.eth.getAccounts();
+  const account = accounts[0];
+  const acceptSwap = await contract.methods
+    .AcceptSwap(data.swapId)
+    .send({ from: account });
+  console.log(acceptSwap);
+});
+
 export const nftsSlice = createSlice({
   name: "nfts",
   initialState: {
