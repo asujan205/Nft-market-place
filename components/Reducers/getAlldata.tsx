@@ -103,6 +103,17 @@ const ResellNfts = createAsyncThunk("nfts/resellNfts", async (data: any) => {
     .send({ from: account, value: 25000000000000000 });
   console.log(reSell);
 });
+export const CreateSwap = createAsyncThunk(
+  "nfts/createSwap",
+  async (data: any) => {
+    const accounts = await metamaskWeb3.eth.getAccounts();
+    const account = accounts[0];
+    const createSwap = await contract.methods
+      .CreateSwap(data.toAddress, contractAddress, data.tokenId)
+      .send({ from: account });
+    console.log(createSwap);
+  }
+);
 
 export const nftsSlice = createSlice({
   name: "nfts",
