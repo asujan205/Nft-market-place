@@ -138,6 +138,18 @@ export const AcceptSwap = createAsyncThunk(
 //   console.log(rejectSwap);
 // });
 
+export const CancelSwap = createAsyncThunk(
+  "nfts/cancelSwap",
+  async (data: any) => {
+    const accounts = await metamaskWeb3.eth.getAccounts();
+    const account = accounts[0];
+    const cancelSwap = await swapContract.methods
+      .CancelSwap(data.swapId)
+      .send({ from: account });
+    console.log(cancelSwap);
+  }
+);
+
 export const nftsSlice = createSlice({
   name: "nfts",
   initialState: {
@@ -187,6 +199,27 @@ export const nftsSlice = createSlice({
       })
       .addCase(ResellNfts.fulfilled, (state: any, action: any) => {
         state.status = "success";
+      })
+      .addCase(CreateSwap.pending, (state: any, action: any) => {
+        state.status = "loading";
+      })
+      .addCase(CreateSwap.fulfilled, (state: any, action: any) => {
+        state.status = "success";
+      })
+      .addCase(AcceptSwap.pending, (state: any, action: any) => {
+        state.status = "loading";
+      })
+      .addCase(AcceptSwap.fulfilled, (state: any, action: any) => {
+        state.status = "success";
+      })
+      .addCase(CancelSwap.pending, (state: any, action: any) => {
+        state.status = "loading";
+      })
+      .addCase(CancelSwap.fulfilled, (state: any, action: any) => {
+        state.status = "success";
+      })
+      .addCase(CancelSwap.rejected, (state: any, action: any) => {
+        state.status = "error";
       });
   },
 });
