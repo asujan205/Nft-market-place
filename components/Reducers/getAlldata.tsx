@@ -3,6 +3,7 @@ import Web3 from "web3";
 import { NftAbi } from "../../NftAbi";
 import { ipfsToHTTPS } from "../Helper";
 import { swapAbi } from "../../swapabi";
+import { Dispatch } from "@reduxjs/toolkit";
 
 // const web3 = new Web3(Web3.givenProvider || "http://localhost:7545");
 // const web3 = new Web3(
@@ -18,6 +19,7 @@ const web3 = new Web3(
 const contractAddress = "0x20445D2A57e8251ec17e9A6e111a021167fD1981";
 
 const swapAddress = "0x686a6e847cD2412604F6117CA87DD2DCd5A02cAB";
+const swap2Address = "0x4929C86047cF2c03D57e5Fe9A5c023f84597E386";
 const swapContract = new web3.eth.Contract(swapAbi, swapAddress);
 const contract = new web3.eth.Contract(NftAbi, contractAddress);
 
