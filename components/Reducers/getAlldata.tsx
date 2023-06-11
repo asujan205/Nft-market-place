@@ -18,8 +18,8 @@ const web3 = new Web3(
 
 const contractAddress = "0x20445D2A57e8251ec17e9A6e111a021167fD1981";
 
-const swapAddress = "0x686a6e847cD2412604F6117CA87DD2DCd5A02cAB";
-const swap2Address = "0x4929C86047cF2c03D57e5Fe9A5c023f84597E386";
+const swapAddress = "0x6E50B0A844f2b8F7c6Fd8c54c4afaCd2D25ff5f0";
+
 const swapContract = new web3.eth.Contract(swapAbi, swapAddress);
 const contract = new web3.eth.Contract(NftAbi, contractAddress);
 
@@ -110,11 +110,30 @@ const ResellNfts = createAsyncThunk("nfts/resellNfts", async (data: any) => {
 export const CreateSwap = createAsyncThunk(
   "nfts/createSwap",
   async (data: any) => {
+    console.log(data);
     const accounts = await metamaskWeb3.eth.getAccounts();
     const account = accounts[0];
+    const estimateGas = await swapContract.methods
+      .createSwap(
+        data.toAddress,
+        contractAddress,
+        data.tokenId1,
+
+        contractAddress,
+        data.tokenId2
+      )
+      .estimateGas();
+
     const createSwap = await swapContract.methods
-      .CreateSwap(data.toAddress, contractAddress, data.tokenId)
-      .send({ from: account });
+      .createSwap(
+        data.toAddress,
+        contractAddress,
+        data.tokenId1,
+
+        contractAddress,
+        data.tokenId2
+      )
+      .send({ from: account, value: 1500000, gas: estimateGas });
     console.log(createSwap);
   }
 );

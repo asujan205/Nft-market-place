@@ -9,6 +9,8 @@ import { CreateSwap } from "../Reducers/getAlldata";
 
 const contractAddress = "0x20445D2A57e8251ec17e9A6e111a021167fD1981";
 const toAddress = "0x7E627dD6A54927be7E598E7984fb35D21Ce1C685";
+const tokenId1 = 1;
+const tokenId2 = 3;
 const web3 = new Web3(Web3.givenProvider || "http://localhost:7545");
 // const contract = new web3.eth.Contract(swapabi, contract_address);
 // const Nfts_contract = "0xBC98199BB6820dF2a57E9A417542142b6c1A46D6";
@@ -18,7 +20,8 @@ const Createswap = (tokenId: any) => {
 
   const [nfts, setMyNfts] = useState<any[]>([]); // nfts is the state variable and setMyNfts is the function to update the state variablevffk
   const createSwap = async (tokenId: any) => {
-    dispatch(CreateSwap({ toAddress, tokenId }));
+    console.log("create swap");
+    dispatch(CreateSwap({ toAddress, tokenId1, tokenId2 }));
 
     // const accounts = await web3.eth.getAccounts();
     // const account = accounts[0];
