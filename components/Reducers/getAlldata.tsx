@@ -11,12 +11,25 @@ import { Dispatch } from "@reduxjs/toolkit";
 //     "https://rpc-mumbai.maticvigil.com" ||
 //     "http://localhost:7545"
 // );
-const metamaskWeb3 = new Web3(Web3.givenProvider || "http://localhost:7545");
-const web3 = new Web3(
-  new Web3.providers.HttpProvider("https://rpc-mumbai.maticvigil.com")
-);
+// const metamaskWeb3 = new Web3(Web3.givenProvider || "http://localhost:7545");
+// const web3 = new Web3(
+//   new Web3.providers.HttpProvider("https://rpc-mumbai.maticvigil.com")
+// );
+let web3: any;
 
-const contractAddress = "0x20445D2A57e8251ec17e9A6e111a021167fD1981";
+if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
+  // Metamask is available
+  web3 = new Web3(window.ethereum);
+} else {
+  // Fallback to a remote node
+  web3 = new Web3(
+    new Web3.providers.HttpProvider("https://rpc-mumbai.maticvigil.com")
+  );
+}
+
+// Use web3Instance for interacting with the blockchain
+
+const contractAddress = "0x1c451D2B8B5f0574999e1Dd86c571c6C4A01033A";
 
 const swapAddress = "0x6E50B0A844f2b8F7c6Fd8c54c4afaCd2D25ff5f0";
 
@@ -26,7 +39,7 @@ const contract = new web3.eth.Contract(NftAbi, contractAddress);
 const FetchAllNfts = createAsyncThunk("nfts/getAllNfts", async () => {
   const Data = await contract.methods.fectchMarketNft().call();
 
-  let newData = [];
+  let newData: any = [];
 
   for (let i = 0; i < Data.length; i++) {
     const tokenUri = await contract.methods.tokenURI(Data[i].tokenId).call();
@@ -44,7 +57,7 @@ const FetchAllNfts = createAsyncThunk("nfts/getAllNfts", async () => {
 });
 
 const FetchListedNfts = createAsyncThunk("nfts/getListedNfts", async () => {
-  const accounts = await metamaskWeb3.eth.getAccounts();
+  const accounts = await web3.eth.getAccounts();
   const account = accounts[0];
 
   const myNfts = await contract.methods
@@ -62,7 +75,7 @@ const FetchListedNfts = createAsyncThunk("nfts/getListedNfts", async () => {
   return newData;
 });
 const FetchBuyedNfts = createAsyncThunk("nfts/getBuyedNfts", async () => {
-  const accounts = await metamaskWeb3.eth.getAccounts();
+  const accounts = await web3.eth.getAccounts();
   const account = accounts[0];
 
   const myNfts = await contract.methods.fetchMyNft().call({ from: account });
@@ -79,20 +92,35 @@ const FetchBuyedNfts = createAsyncThunk("nfts/getBuyedNfts", async () => {
 });
 
 const CreateNfts = createAsyncThunk("nfts/createNfts", async (data: any) => {
-  const accounts = await metamaskWeb3.eth.getAccounts();
-  const account = accounts[0];
+  try {
+    const accounts = await web3.eth.getAccounts();
+    const account = accounts[0];
+    console.log(account);
+    console.log(data.mapuri);
+    console.log(data.price);
 
-  console.log(data.mapuri);
-  console.log(data.price);
+    // Instantiate the contract with the correct address
+    const nftContract = new web3.eth.Contract(NftAbi, contractAddress);
 
-  const createNft = await contract.methods
-    .createNft(data.mapuri, data.price)
-    .send({ from: account, value: 25000000000000000 });
-  console.log(createNft);
+    // Call the createNft function of your contract
+    const createNft = await nftContract.methods
+      .createNft(data.mapuri, data.price)
+      .send({ from: account, value: 25000000000000000 });
+
+    console.log(createNft);
+
+    // Return the result or any other data you need
+    return createNft;
+  } catch (error) {
+    // Handle any errors that occur during the process
+    console.error("Error creating NFT:", error);
+    throw error;
+  }
 });
+
 const BuyNftss = createAsyncThunk("nfts/buyNfts", async (data: any) => {
   console.log(data.key);
-  const accounts = await metamaskWeb3.eth.getAccounts();
+  const accounts = await web3.eth.getAccounts();
   const account = accounts[0];
   const BuyNfts = await contract.methods
     .createMarketSell(data.key)
@@ -100,7 +128,7 @@ const BuyNftss = createAsyncThunk("nfts/buyNfts", async (data: any) => {
   console.log(BuyNfts);
 });
 const ResellNfts = createAsyncThunk("nfts/resellNfts", async (data: any) => {
-  const accounta = await metamaskWeb3.eth.getAccounts();
+  const accounta = await web3.eth.getAccounts();
   const account = accounta[0];
   const reSell = await contract.methods
     .reSellToken(data.tokenId, 40)
@@ -111,7 +139,7 @@ export const CreateSwap = createAsyncThunk(
   "nfts/createSwap",
   async (data: any) => {
     console.log(data);
-    const accounts = await metamaskWeb3.eth.getAccounts();
+    const accounts = await web3.eth.getAccounts();
     const account = accounts[0];
     const estimateGas = await swapContract.methods
       .createSwap(
@@ -141,7 +169,7 @@ export const CreateSwap = createAsyncThunk(
 export const AcceptSwap = createAsyncThunk(
   "nfts/acceptSwap",
   async (data: any) => {
-    const accounts = await metamaskWeb3.eth.getAccounts();
+    const accounts = await web3.eth.getAccounts();
     const account = accounts[0];
     const acceptSwap = await swapContract.methods
       .AcceptSwap(data.swapId)
@@ -162,7 +190,7 @@ export const AcceptSwap = createAsyncThunk(
 export const CancelSwap = createAsyncThunk(
   "nfts/cancelSwap",
   async (data: any) => {
-    const accounts = await metamaskWeb3.eth.getAccounts();
+    const accounts = await web3.eth.getAccounts();
     const account = accounts[0];
     const cancelSwap = await swapContract.methods
       .CancelSwap(data.swapId)
