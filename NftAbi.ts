@@ -113,6 +113,19 @@ export const NftAbi: any = [
     anonymous: false,
     inputs: [
       {
+        indexed: false,
+        internalType: "bool",
+        name: "comapredValue",
+        type: "bool",
+      },
+    ],
+    name: "IsCompared",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
         indexed: true,
         internalType: "uint256",
         name: "tokenId",
@@ -181,7 +194,7 @@ export const NftAbi: any = [
       },
       {
         internalType: "uint256",
-        name: "newPrice",
+        name: "Newprice",
         type: "uint256",
       },
     ],
@@ -354,7 +367,7 @@ export const NftAbi: any = [
   },
   {
     inputs: [],
-    name: "fetchItemsListed",
+    name: "fectchMarketNft",
     outputs: [
       {
         components: [
@@ -394,7 +407,7 @@ export const NftAbi: any = [
   },
   {
     inputs: [],
-    name: "fetchMarketNft",
+    name: "fetchItemsListed",
     outputs: [
       {
         components: [
