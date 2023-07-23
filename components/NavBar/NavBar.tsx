@@ -18,28 +18,19 @@ const NavBar = ({
   return (
     <>
       <div className="bg-[#220970] w-full h-[200px] shrink-0  ">
-        {/* <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="1440"
-          height="884"
-          viewBox="0 0 1440 884"
-          fill="none"
-        >
-          <path
-            d="M0 0H1440V783.981C1440 839.202 1395.43 883.969 1340.21 883.977C1194.64 883.998 919.726 884.023 720.5 883.961C438.023 883.872 0 883.961 0 883.961V0Z"
-            fill="#220970"
-          />
-        </svg> */}
         <div className=" bg-[#0C0263] flex flex-row min-w-[1170px] min-h[49px] justify-between gap-2">
           <div>
-            <Link href="/" className=" h-full w-[154px] flex flex-row ">
+            <Link
+              href="/"
+              className=" h-full w-[154px] flex flex-row  justify-center items-center"
+            >
               <img src="/logo.png" alt="logo" className="w-[154px]" />
-              <h1 className="text-white text-2xl font-bold ml-10 mt-5">
+              <h1 className="text-[#FFF] text-center font-Poppins font-[32px] normal font-[500] leading-normal">
                 MonoMarket
               </h1>
             </Link>
           </div>
-          <div className=" flex flex-row gap-1 ">
+          <div className=" flex flex-row gap-1  p-6">
             <div className="text-[#FFF] text-center font-Poppins font-[16px] normal font-[500] leading-normal">
               Home
             </div>
@@ -52,6 +43,13 @@ const NavBar = ({
             <div className="text-[#FFF] text-center font-Poppins font-[16px] normal font-[500] leading-normal">
               Swap
             </div>
+          </div>
+          <div className="flex flex-row gap-1 p-6">
+            <button className="border ring-['rgba(255, 255, 255, 0.03)] ring-[5px] backdrop-blur-[5px] w-[112px] h-[42px]">
+              <h1 className="text-[#FFF] text-center font-Poppins font-[16px] normal font-[500] leading-normal">
+                Connect
+              </h1>
+            </button>
           </div>
         </div>
       </div>
