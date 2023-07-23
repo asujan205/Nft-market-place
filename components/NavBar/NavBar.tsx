@@ -30,15 +30,15 @@ const NavBar = ({
               </h1>
             </Link>
           </div>
-          <div className=" flex flex-row gap-1  p-6">
+          <div className=" flex flex-row gap-5  p-6">
             <div className="text-[#FFF] text-center font-Poppins font-[16px] normal font-[500] leading-normal">
               Home
             </div>
             <div className="text-[#FFF] text-center font-Poppins font-[16px] normal font-[500] leading-normal">
-              CreateNft
+              Createnft
             </div>
             <div className="text-[#FFF] text-center font-Poppins font-[16px] normal font-[500] leading-normal">
-              MyNfts
+              Mynfts
             </div>
             <div className="text-[#FFF] text-center font-Poppins font-[16px] normal font-[500] leading-normal">
               Swap
@@ -51,6 +51,7 @@ const NavBar = ({
               </h1>
             </button>
           </div>
+          {/* <img src="/illustration.svg" alt="illustration" className="w-full" /> */}
         </div>
       </div>
       {/* <nav className="bg-white border-gray-1 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
