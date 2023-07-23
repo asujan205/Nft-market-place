@@ -17,41 +17,60 @@ const NavBar = ({
 }: any) => {
   return (
     <>
-      <div className="bg-[#220970] w-full h-[200px] shrink-0  ">
-        <div className=" bg-[#0C0263] flex flex-row min-w-[1170px] min-h[49px] justify-between gap-2">
-          <div>
-            <Link
-              href="/"
-              className=" h-full w-[154px] flex flex-row  justify-center items-center"
-            >
-              <img src="/logo.png" alt="logo" className="w-[154px]" />
-              <h1 className="text-[#FFF] text-center font-Poppins font-[32px] normal font-[500] leading-normal">
-                MonoMarket
+      <div className="bg-[#220970] w-full h-[800px]  shrink-0 ">
+        {" "}
+        {/* Add 'flex justify-center' */}
+        <div className="  flex flex-row mx-auto items-center justify-between gap-10 max-w-7xl py-[1rem]  ">
+          <div className="h-full w-[154px] flex flex-row  justify-center items-center px-3 gap-1">
+            <Link href="/" className=" ">
+              <img src="/logo.svg" alt="logo" className=" h-[50px]" />
+            </Link>
+            <Link href="/">
+              <h1 className="text-[#FFF] text-center font-Poppins text-[16px] normal font-[500] leading-normal">
+                SwapyMart
               </h1>
             </Link>
           </div>
-          <div className=" flex flex-row gap-5  p-6">
-            <div className="text-[#FFF] text-center font-Poppins font-[16px] normal font-[500] leading-normal">
+          <div className=" flex flex-row gap-10  ">
+            <div className="text-[#FFF] text-center font-Poppins text-[16px] normal font-[500] leading-normal">
               Home
             </div>
-            <div className="text-[#FFF] text-center font-Poppins font-[16px] normal font-[500] leading-normal">
+            <div className="text-[#FFF] text-center font-Poppins text-[16px] normal font-[500] leading-normal">
               Createnft
             </div>
-            <div className="text-[#FFF] text-center font-Poppins font-[16px] normal font-[500] leading-normal">
+            <div className="text-[#FFF] text-center font-Poppins text-[16px] normal font-[500] leading-normal">
               Mynfts
             </div>
-            <div className="text-[#FFF] text-center font-Poppins font-[16px] normal font-[500] leading-normal">
+            <div className="text-[#FFF] text-center font-Poppins text-[16px] normal font-[500] leading-normal">
               Swap
             </div>
           </div>
-          <div className="flex flex-row gap-1 p-6">
-            <button className="border ring-['rgba(255, 255, 255, 0.03)] ring-[5px] backdrop-blur-[5px] w-[112px] h-[42px]">
-              <h1 className="text-[#FFF] text-center font-Poppins font-[16px] normal font-[500] leading-normal">
+          <div className="pr-5">
+            <button className=" bg-[#FFFFFF07]	 rounded-[5px] backdrop-blur-[5px] w-[112px] h-[42px]">
+              <h1 className="text-[#FFF] text-center font-Poppins text-[16px] normal font-[500] leading-normal">
                 Connect
               </h1>
             </button>
           </div>
-          {/* <img src="/illustration.svg" alt="illustration" className="w-full" /> */}
+        </div>
+        <div className="flex flex-row justify-center items-center gap-10 mx-auto max-w-7xl">
+          <div>
+            {" "}
+            <img
+              src="/illustration.svg"
+              alt="illustration"
+              className="w-full h-[700px]"
+            />
+          </div>
+          <div>
+            <h1>Cryptocurrency just got even better</h1>
+
+            <h1>
+              Best nft collection freelance services online. Outsource your nft
+              collection project and get it quickly done and delivered remotely
+              online.
+            </h1>
+          </div>
         </div>
       </div>
       {/* <nav className="bg-white border-gray-1 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
