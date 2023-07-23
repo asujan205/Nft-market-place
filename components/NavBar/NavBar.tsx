@@ -17,7 +17,45 @@ const NavBar = ({
 }: any) => {
   return (
     <>
-      <nav className="bg-white border-gray-1 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+      <div className="bg-[#220970] w-full h-[200px] shrink-0  ">
+        {/* <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="1440"
+          height="884"
+          viewBox="0 0 1440 884"
+          fill="none"
+        >
+          <path
+            d="M0 0H1440V783.981C1440 839.202 1395.43 883.969 1340.21 883.977C1194.64 883.998 919.726 884.023 720.5 883.961C438.023 883.872 0 883.961 0 883.961V0Z"
+            fill="#220970"
+          />
+        </svg> */}
+        <div className=" bg-[#0C0263] flex flex-row min-w-[1170px] min-h[49px] justify-between gap-2">
+          <div>
+            <Link href="/" className=" h-full w-[154px] flex flex-row ">
+              <img src="/logo.png" alt="logo" className="w-[154px]" />
+              <h1 className="text-white text-2xl font-bold ml-10 mt-5">
+                MonoMarket
+              </h1>
+            </Link>
+          </div>
+          <div className=" flex flex-row gap-1 ">
+            <div className="text-[#FFF] text-center font-Poppins font-[16px] normal font-[500] leading-normal">
+              Home
+            </div>
+            <div className="text-[#FFF] text-center font-Poppins font-[16px] normal font-[500] leading-normal">
+              CreateNft
+            </div>
+            <div className="text-[#FFF] text-center font-Poppins font-[16px] normal font-[500] leading-normal">
+              MyNfts
+            </div>
+            <div className="text-[#FFF] text-center font-Poppins font-[16px] normal font-[500] leading-normal">
+              Swap
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <nav className="bg-white border-gray-1 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul className="flex flex-col p-4 mt-4 border items-center border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
@@ -78,7 +116,7 @@ const NavBar = ({
             </li>
           </ul>
         </div>
-      </nav>
+      </nav> */}
     </>
   );
 };

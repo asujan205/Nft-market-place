@@ -29,7 +29,7 @@ if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
 
 // Use web3Instance for interacting with the blockchain
 
-const contractAddress = "0x7e4D19BF0c661E030b95fC8412133FfE3b401Cd8";
+const contractAddress = "0x01412F67C0a138f1eB8C232AeC27D010c13B3429";
 
 const swapAddress = "0x6E50B0A844f2b8F7c6Fd8c54c4afaCd2D25ff5f0";
 
