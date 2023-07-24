@@ -42,12 +42,24 @@ const Homepage: any = () => {
         //   backgroundImage: `url('/bg.svg')`,
         // }}
       >
-        <div className=" flex flex-col mx-auto justify-center items-center max-w-7xl py-[6rem]">
-          <div className="text-[#FFF] text-center font-Poppins text-[16px] normal font-[500] leading-normal">
+        <div className=" flex flex-col mx-auto  max-w-7xl py-[6rem] items-start">
+          <div className="text-[#FFF] text-center font-Poppins text-[16px] normal font-[500] leading-normal ">
             New NFTs
           </div>
           <div className="text-[#FFF] text-center font-Poppins text-[36px] normal font-[500] leading-normal">
             Weekly Top Nfts
+          </div>
+          <div className="flex flex-row justify-between items-center gap-10    w-full ">
+            <h1 className="text-[#FFF] text-center font-Poppins text-[16px] normal font-[500] leading-normal tracking-[0.3px]">
+              <p>
+                Outsource your nft collection project and get it quickly done
+              </p>
+              <p>and delivered remotely online.</p>
+            </h1>
+
+            <div className=" ">
+              <img src="/arrows.svg" />
+            </div>
           </div>
         </div>
       </div>
