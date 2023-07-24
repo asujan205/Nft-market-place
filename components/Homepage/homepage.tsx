@@ -78,11 +78,21 @@ const Homepage: any = () => {
                           />
                         </div>
                       </div>
-                      <div className="w-[300px] h-[196px] bg-[#02021B]">
-                        <div className="text-[#FFF] text-center font-Poppins text-[14px] normal font-[400] leading-normal">
-                          {item.name}
+                      <div className="w-[300px] h-[196px] bg-[#02021B] flex flex-col pl-4 ">
+                        <div className="flex flex-row justify-between items-center h-[50px] gap-11">
+                          <div className="text-[#FFF] font-Poppins text-[14px] normal font-[400] leading-normal">
+                            {item.name}
+                          </div>
+                          {/* <div className="ml-auto">
+                            <img
+                              src="/people.svg"
+                              alt="people"
+                              // className="w-[130px] h-[130px]"
+                            />
+                          </div> */}
                         </div>
-                        <div className="flex flex-row  gap-2 items-center pl-2">
+
+                        <div className="flex flex-row  gap-2 items-center mt-3">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="20"
@@ -119,13 +129,29 @@ const Homepage: any = () => {
                             {item.money} Eth
                           </h1>
                         </div>
-                        <img src="/people.svg" />
+
+                        <div className="flex justify-center mt-5 ">
+                          <button className="rounded-[5px] w-[177px] h-[57px] backdrop:blur-[96px] shadow-custom bg-gradient-to-r from-[#FF56F6] from-18.8% to-[#3BACE2] to-85.44% via-[#B936EE]  via-40% group-hover:bg-gradient-to-l hover:from-[#3BACE2] hover:to-[#FF56F6] hover:via-[#406AFF]">
+                            Bid Now
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </>
                 );
               })}
             :{" "}
+          </div>
+        </div>
+      </div>
+      <div className="w-full h-[779px]  bg-backk">
+        <div className="flex flex-col mx-auto justify-between  max-w-7xl py-[6rem] items-start">
+          <div className="text-[#FFF]  font-Poppins text-[36px] normal font-[700] leading-normal ">
+            Our Top Creator’s Words
+          </div>
+
+          <div className="flex flex-row justify-between items-start ">
+            <div className=" w-[470px] h-[227px] rounded-[15px] bg-background"></div>
           </div>
         </div>
       </div>
