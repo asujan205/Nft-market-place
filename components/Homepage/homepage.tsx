@@ -36,7 +36,23 @@ const Homepage: any = () => {
 
   return (
     <>
-      <div className="flex flex-wrap space-x-10 mx-auto justify-center	bg-[url('/bg.svg')]mt-10">
+      <div
+        className="bg-contain bg-no-repeat bg-center bg-gradient-to-r from-[#220970] to-[#FF00A8] w-full h-[800px]  shrink-0"
+        // style={{
+        //   backgroundImage: `url('/bg.svg')`,
+        // }}
+      >
+        <div className=" flex flex-col mx-auto justify-center items-center max-w-7xl py-[6rem]">
+          <div className="text-[#FFF] text-center font-Poppins text-[16px] normal font-[500] leading-normal">
+            New NFTs
+          </div>
+          <div className="text-[#FFF] text-center font-Poppins text-[36px] normal font-[500] leading-normal">
+            Weekly Top Nfts
+          </div>
+        </div>
+      </div>
+
+      {/* <div className="flex flex-wrap space-x-10 mx-auto justify-center	bg-[url('/bg.svg')]mt-10">
         {metaData &&
           metaData.map((item, key) => {
             return (
@@ -64,7 +80,7 @@ const Homepage: any = () => {
             );
           })}
         :{" "}
-      </div>
+      </div> */}
     </>
   );
 };
