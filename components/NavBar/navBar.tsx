@@ -53,13 +53,13 @@ const NavBar = ({
             </button>
           </div>
         </div>
-        <div className="flex flex-row justify-center items-center gap-10 mx-auto max-w-7xl">
+        <div className="flex flex-row justify-center items-center gap-10  ">
           <div>
             {" "}
             <img
               src="/illustration.svg"
               alt="illustration"
-              className="w-full h-[700px]"
+              className="w-full h-full"
             />
           </div>
           <div>
@@ -71,12 +71,13 @@ const NavBar = ({
                 just got even better
               </h1>
             </div>
-
-            <h1 className="text-[#FFF] font-poppins text-[20px] font-[400] normal tracking-[0.3px] leading-normal">
-              Best nft collection freelance services online. Outsource your nft
-              collection project and get it quickly done and delivered remotely
-              online.
-            </h1>
+            <div className=" ">
+              <h1 className="text-[#FFF] flex justify-center items-center font-poppins text-[20px] font-[400] normal tracking-[0.3px] leading-normal">
+                Best nft collection freelance services online. Outsource your
+                nft collection project and get it quickly done and delivered
+                remotely online.
+              </h1>
+            </div>
           </div>
         </div>
       </div>
