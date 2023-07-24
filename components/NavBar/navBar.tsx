@@ -53,7 +53,7 @@ const NavBar = ({
             </button>
           </div>
         </div>
-        <div className="flex flex-row justify-center items-center gap-10  ">
+        <div className="flex flex-row justify-between items-center gap-10 mx-auto ml-[5rem] ">
           <div>
             {" "}
             <img
