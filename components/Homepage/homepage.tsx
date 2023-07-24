@@ -44,7 +44,7 @@ const Homepage: any = () => {
   return (
     <>
       <div
-        className="bg-contain bg-no-repeat bg-center bg-gradient-to-r from-[#220970] to-[#FF00A8] w-full h-[800px]  shrink-0"
+        className=" bg-gradient-to-r from-[#220970] to-[#FF00A8] "
         // style={bg}
       >
         <div className=" flex flex-col mx-auto  max-w-7xl py-[6rem] items-start">
@@ -73,8 +73,8 @@ const Homepage: any = () => {
                 return (
                   <>
                     <div className="flex flex-col">
-                      <div className="flex flex-row  p-[0.2rem] backdrop:blur-[25px] w-[300px] relative bg-gradient-to-r from-red to-purple-50 mt-3 ">
-                        <div className="bg-[#222]  padding-[2rem] h-[250px] w-[300px] ">
+                      <div className="flex flex-row  p-[0.2rem] backdrop:blur-[25px]  relative bg-gradient-to-r from-red to-purple-50 mt-3 ">
+                        <div className="bg-[#222]  padding-[2rem] h-[250px]  ">
                           <NftCard
                             // Name={item.name}
                             // Price={item.money}
@@ -83,7 +83,7 @@ const Homepage: any = () => {
                           />
                         </div>
                       </div>
-                      <div className="w-[300px] h-[196px] bg-[#02021B] flex flex-col pl-4 ">
+                      <div className=" h-[196px] bg-[#02021B] flex flex-col pl-4 ">
                         <div className="flex flex-row justify-between items-center h-[50px] gap-11">
                           <div className="text-[#FFF] font-Poppins text-[14px] normal font-[400] leading-normal">
                             {item.name}
@@ -157,7 +157,7 @@ const Homepage: any = () => {
 
           <div className="flex flex-row justify-between items-start mt-10 py-5">
             <div
-              className=" w-[470px] h-[227px] rounded-[15px] flex flex-row "
+              className="  h-[227px] rounded-[15px] flex flex-row "
               style={gradientBackground}
             >
               <div className="flex flex-col px-5 ">
@@ -170,7 +170,9 @@ const Homepage: any = () => {
               </div>
               <div className="flex flex-col items-center">
                 <img src="/badge.svg" />
-                <div className="text">EXPERT</div>
+                <div className="text-[#FFF] text-center text-[32px] normal font-[400] font-poppins ">
+                  EXPERT
+                </div>
               </div>
             </div>
           </div>

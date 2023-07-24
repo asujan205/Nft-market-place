@@ -17,11 +17,11 @@ const NavBar = ({
 }: any) => {
   return (
     <>
-      <div className="bg-[#220970] w-full h-[800px]  shrink-0 ">
+      <div className="bg-[#220970] w-full h-[800px] ">
         {" "}
         {/* Add 'flex justify-center' */}
-        <div className="  flex flex-row mx-auto items-center justify-between gap-10 max-w-7xl py-[1rem]  ">
-          <div className="h-full w-[154px] flex flex-row  justify-center items-center px-3 gap-1">
+        <div className="  flex flex-row mx-auto items-center justify-between gap-10 lg:max-w-7xl sm:w-full py-[1rem]  ">
+          <div className="h-full  flex flex-row  justify-center items-center px-3 gap-1">
             <Link href="/" className=" ">
               <img src="/logo.svg" alt="logo" className=" h-[50px]" />
             </Link>

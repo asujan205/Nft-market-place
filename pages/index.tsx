@@ -24,9 +24,9 @@ export default function Home() {
         setSwapActive={setSwapActive}
       />
       {HomeActive && <Homepage />}
-      {CreateActive && <CreationForm />}
+      {/* {CreateActive && <CreationForm />}
       {MyNftsActive && <OwnedNfts />}
-      {SwapActive && <Createswap />}
+      {SwapActive && <Createswap />} */}
     </>
   );
 }
