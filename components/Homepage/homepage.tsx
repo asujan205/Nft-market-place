@@ -131,7 +131,7 @@ const Homepage: any = () => {
                         </div>
 
                         <div className="flex justify-center mt-5 ">
-                          <button className="rounded-[5px] w-[177px] h-[57px] backdrop:blur-[96px] shadow-custom bg-gradient-to-r from-[#FF56F6] from-18.8% to-[#3BACE2] to-85.44% via-[#B936EE]  via-40% group-hover:bg-gradient-to-l hover:from-[#3BACE2] hover:to-[#FF56F6] hover:via-[#406AFF]">
+                          <button className="rounded-[5px] w-[177px] h-[57px] backdrop:blur-[96px] shadow-custom bg-gradient-to-r from-[#FF56F6] from-18.8% to-[#3BACE2] to-85.44% via-[#B936EE]  via-40% group-hover:bg-gradient-to-l hover:from-[#3BACE2] hover:to-[#FF56F6] hover:via-[#406AFF] ">
                             Bid Now
                           </button>
                         </div>
