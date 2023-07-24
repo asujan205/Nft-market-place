@@ -36,7 +36,7 @@ const Homepage: any = () => {
 
   return (
     <>
-      <div className="flex flex-wrap space-x-10 mx-auto justify-center	mt-10">
+      <div className="flex flex-wrap space-x-10 mx-auto justify-center	bg-[url('/bg.svg')]mt-10">
         {metaData &&
           metaData.map((item, key) => {
             return (

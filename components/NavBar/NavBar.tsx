@@ -63,9 +63,16 @@ const NavBar = ({
             />
           </div>
           <div>
-            <h1>Cryptocurrency just got even better</h1>
+            <div className="flex flex-col justify-center ">
+              <h1 className="text-[#FFF] font-poppins text-[63px] font-[700] leading-normal capitalize">
+                Cryptocurrency
+              </h1>
+              <h1 className="text-[#FFF] font-poppins normal font-[700] text-[50px] leading-normal capitalize ">
+                just got even better
+              </h1>
+            </div>
 
-            <h1>
+            <h1 className="text-[#FFF] font-poppins text-[20px] font-[400] normal tracking-[0.3px] leading-normal">
               Best nft collection freelance services online. Outsource your nft
               collection project and get it quickly done and delivered remotely
               online.
