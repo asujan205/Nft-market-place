@@ -21,7 +21,7 @@ module.exports = {
         customGradient:
           "linear-gradient(130deg, #FF56F6 18.31%, #B936EE 43.26%, #3BACE2 85.44%, #406AFF 100%)",
 
-        backk: "rgba(2, 2, 27, 0.70);",
+        backk: "rgba(2, 2, 27, 0.70)",
         background:
           "linear-gradient(180deg, rgba(255, 255, 255, 0.40) 0.55%, rgba(255, 255, 255, 0.04) 100%)",
       },

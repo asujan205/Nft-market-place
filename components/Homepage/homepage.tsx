@@ -33,14 +33,19 @@ const Homepage: any = () => {
     console.log(key);
     dispatch(BuyNftss({ key }));
   };
+  const gradientBackground = {
+    background:
+      "linear-gradient(180deg, rgba(255, 255, 255, 0.40) 0.55%, rgba(255, 255, 255, 0.04) 100%)",
+  };
+  const bg = {
+    backgroundImage: `url('/SETiMG.svg')`,
+  };
 
   return (
     <>
       <div
         className="bg-contain bg-no-repeat bg-center bg-gradient-to-r from-[#220970] to-[#FF00A8] w-full h-[800px]  shrink-0"
-        // style={{
-        //   backgroundImage: `url('/bg.svg')`,
-        // }}
+        // style={bg}
       >
         <div className=" flex flex-col mx-auto  max-w-7xl py-[6rem] items-start">
           <div className="text-[#FFF] text-center font-Poppins text-[16px] normal font-[500] leading-normal ">
@@ -150,8 +155,24 @@ const Homepage: any = () => {
             Our Top Creator’s Words
           </div>
 
-          <div className="flex flex-row justify-between items-start ">
-            <div className=" w-[470px] h-[227px] rounded-[15px] bg-background"></div>
+          <div className="flex flex-row justify-between items-start mt-10 py-5">
+            <div
+              className=" w-[470px] h-[227px] rounded-[15px] flex flex-row "
+              style={gradientBackground}
+            >
+              <div className="flex flex-col px-5 ">
+                <h1 className="text-[#FFF] text-justify font-Poppins text-[34px] normal font-[500] leading-normal tracking-[0.3px]">
+                  Joson Roy
+                </h1>
+                <h1 className="text-[#FFF] text-justify font-Poppins text-[24px] normal font-[400] leading-normal tracking-[0.3px]">
+                  Sr. Designer
+                </h1>
+              </div>
+              <div className="flex flex-col items-center">
+                <img src="/badge.svg" />
+                <div>EXPERT</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
