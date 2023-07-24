@@ -170,7 +170,7 @@ const Homepage: any = () => {
               </div>
               <div className="flex flex-col items-center">
                 <img src="/badge.svg" />
-                <div>EXPERT</div>
+                <div className="text">EXPERT</div>
               </div>
             </div>
           </div>

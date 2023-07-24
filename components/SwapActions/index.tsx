@@ -52,9 +52,9 @@ const Createswap = (tokenId: any) => {
               <>
                 <div className="flex-column flex-wrap space-y-2 ">
                   <NftCard
-                    Name={item.name}
-                    Price={item.money}
-                    description={item.description}
+                    // Name={item.name}
+                    // Price={item.money}
+                    // description={item.description}
                     imageUrl={item.image}
                   />
                   <button onClick={() => createSwap(item.tokenId)}>
