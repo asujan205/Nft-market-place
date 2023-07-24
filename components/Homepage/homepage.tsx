@@ -61,6 +61,27 @@ const Homepage: any = () => {
               <img src="/arrows.svg" />
             </div>
           </div>
+
+          <div className="flex flex-row justify-between items-start ">
+            {metaData &&
+              metaData.map((item, key) => {
+                return (
+                  <>
+                    <div className="flex flex-row h-[393px] p-[0.2rem] relative bg-gradient-to-r from-red to-purple-50 mt-3 ">
+                      <div className="bg-[#222]  padding-[2rem]">
+                        <NftCard
+                          Name={item.name}
+                          Price={item.money}
+                          description={item.description}
+                          imageUrl={item.image}
+                        />
+                      </div>
+                    </div>
+                  </>
+                );
+              })}
+            :{" "}
+          </div>
         </div>
       </div>
 
