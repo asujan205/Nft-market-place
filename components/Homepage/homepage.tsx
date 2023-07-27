@@ -1,11 +1,45 @@
 import React, { useEffect, useState } from "react";
 
-import NftCard from "../MiniComponents/NftCard";
+// import NftCard from "../MiniComponents/NftCard";
 import { FetchAllNfts, BuyNftss } from "../Reducers/getAlldata";
+import NftCard from "./nftCardDummy";
 
 import useConnected from "./useConnected";
 import { useDispatch } from "react-redux";
 import { ThunkDispatch } from "@reduxjs/toolkit";
+const images = [
+  "/img1.png",
+  "/img2.png",
+  "/img3.png",
+  "/img4.png",
+  "/img5.png",
+  "/img6.png",
+  "/img7.png",
+  // Add more image URLs as needed
+];
+// nftData.js
+
+const nftData = [
+  {
+    id: 1,
+    title: "BarBar",
+    imageUrl: "/nft1.png",
+    price: "10 Eth",
+  },
+  {
+    id: 2,
+    title: "NFT 2 Title",
+    imageUrl: "/nft2.svg",
+    price: "5 Eth",
+  },
+  {
+    id: 3,
+    title: "NFT 3 Title",
+    imageUrl: "/nft3.png",
+    price: "15 Eth",
+  },
+  // Add more NFT data as needed
+];
 
 type NFTMetadata = {
   name: string;
@@ -67,77 +101,14 @@ const Homepage: any = () => {
             </div>
           </div>
 
-          <div className="flex flex-row justify-between items-start ">
-            {metaData &&
-              metaData.map((item, key) => {
-                return (
-                  <>
-                    <div className="flex flex-col">
-                      <div className="flex flex-row  p-[0.2rem] backdrop:blur-[25px]  relative bg-gradient-to-r from-red to-purple-50 mt-3 ">
-                        <div className="bg-[#222]  padding-[2rem] h-[250px]  ">
-                          <NftCard imageUrl={item.image} />
-                        </div>
-                      </div>
-                      <div className=" h-[196px] bg-[#02021B] flex flex-col pl-4 ">
-                        <div className="flex flex-row justify-between items-center h-[50px] gap-11">
-                          <div className="text-[#FFF] font-Poppins text-[14px] normal font-[400] leading-normal">
-                            {item.name}
-                          </div>
-                        </div>
-
-                        <div className="flex flex-row  gap-2 items-center mt-3">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="32"
-                            viewBox="0 0 20 32"
-                            fill="none"
-                          >
-                            <path
-                              d="M9.99657 0L0 16.2966L9.99657 11.833V0Z"
-                              fill="white"
-                            />
-                            <path
-                              d="M9.99657 11.8328L0 16.2963L9.99657 22.1027V11.8328Z"
-                              fill="white"
-                            />
-                            <path
-                              d="M19.9944 16.2966L9.99597 0V11.833L19.9944 16.2966Z"
-                              fill="white"
-                            />
-                            <path
-                              d="M9.99597 22.1027L19.9944 16.2963L9.99597 11.8328V22.1027Z"
-                              fill="white"
-                            />
-                            <path
-                              d="M0 18.16L9.99657 32.0001V23.9628L0 18.16Z"
-                              fill="white"
-                            />
-                            <path
-                              d="M9.99597 23.9628V32.0001L20 18.16L9.99597 23.9628Z"
-                              fill="white"
-                            />
-                          </svg>
-                          <h1 className="text-[#FFF] text-center font-Poppins text-[14px] normal font-[400] leading-normal">
-                            {item.money} Eth
-                          </h1>
-                        </div>
-
-                        <div className="flex justify-center mt-5 ">
-                          <button className="rounded-[5px] p-5 items-center h-[57px] backdrop:blur-[96px] shadow-custom bg-gradient-to-r from-[#FF56F6] from-18.8% to-[#3BACE2] to-85.44% via-[#B936EE]  via-40% group-hover:bg-gradient-to-l hover:from-[#3BACE2] hover:to-[#FF56F6] hover:via-[#406AFF] ">
-                            Bid Now
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </>
-                );
-              })}
-            :{" "}
+          <div className="flex flex-row gap-10  flex-wrap justify-between items-start ">
+            {nftData.map((nft) => (
+              <NftCard nft={nft} />
+            ))}
           </div>
         </div>
       </div>
-      <div className="w-full h-[779px]  bg-backk">
+      <div className="w-full   bg-backk">
         <div className="flex flex-col mx-auto justify-between  max-w-7xl py-[6rem] items-start">
           <div className="text-[#FFF]  font-Poppins text-[36px] normal font-[700] leading-normal ">
             Our Top Creator’s Words
@@ -266,6 +237,18 @@ const Homepage: any = () => {
                 </defs>
               </svg>
             </div>
+          </div>
+          <div className="flex flex-row flex-wrap gap-5  mt-[8rem] lg:pl-[15rem]">
+            {images.map((imageUrl, index) => (
+              <img
+                key={index}
+                src={imageUrl}
+                alt={`Image ${index + 1}`}
+                className={`w-[120px]  object-cover rounded shadow-md transition-transform ${
+                  index === 3 ? "transform scale-125" : "transform scale-100"
+                }`}
+              />
+            ))}
           </div>
         </div>
       </div>
