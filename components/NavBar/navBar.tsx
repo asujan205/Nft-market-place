@@ -46,7 +46,7 @@ const NavBar = ({
             </div>
           </div>
           <div className="pr-5">
-            <button className=" bg-[#FFFFFF07]	 rounded-[5px] backdrop-blur-[5px] w-[112px] h-[42px]">
+            <button className=" bg-[#FFFFFF07]	 rounded-[5px] backdrop-blur-[5px] px-5 py-3 items-center">
               <h1 className="text-[#FFF] text-center font-Poppins text-[16px] normal font-[500] leading-normal">
                 Connect
               </h1>

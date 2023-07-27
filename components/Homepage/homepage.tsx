@@ -75,12 +75,7 @@ const Homepage: any = () => {
                     <div className="flex flex-col">
                       <div className="flex flex-row  p-[0.2rem] backdrop:blur-[25px]  relative bg-gradient-to-r from-red to-purple-50 mt-3 ">
                         <div className="bg-[#222]  padding-[2rem] h-[250px]  ">
-                          <NftCard
-                            // Name={item.name}
-                            // Price={item.money}
-                            // description={item.description}
-                            imageUrl={item.image}
-                          />
+                          <NftCard imageUrl={item.image} />
                         </div>
                       </div>
                       <div className=" h-[196px] bg-[#02021B] flex flex-col pl-4 ">
@@ -88,13 +83,6 @@ const Homepage: any = () => {
                           <div className="text-[#FFF] font-Poppins text-[14px] normal font-[400] leading-normal">
                             {item.name}
                           </div>
-                          {/* <div className="ml-auto">
-                            <img
-                              src="/people.svg"
-                              alt="people"
-                              // className="w-[130px] h-[130px]"
-                            />
-                          </div> */}
                         </div>
 
                         <div className="flex flex-row  gap-2 items-center mt-3">
@@ -136,7 +124,7 @@ const Homepage: any = () => {
                         </div>
 
                         <div className="flex justify-center mt-5 ">
-                          <button className="rounded-[5px] w-[177px] h-[57px] backdrop:blur-[96px] shadow-custom bg-gradient-to-r from-[#FF56F6] from-18.8% to-[#3BACE2] to-85.44% via-[#B936EE]  via-40% group-hover:bg-gradient-to-l hover:from-[#3BACE2] hover:to-[#FF56F6] hover:via-[#406AFF] ">
+                          <button className="rounded-[5px] p-5 items-center h-[57px] backdrop:blur-[96px] shadow-custom bg-gradient-to-r from-[#FF56F6] from-18.8% to-[#3BACE2] to-85.44% via-[#B936EE]  via-40% group-hover:bg-gradient-to-l hover:from-[#3BACE2] hover:to-[#FF56F6] hover:via-[#406AFF] ">
                             Bid Now
                           </button>
                         </div>
@@ -155,7 +143,7 @@ const Homepage: any = () => {
             Our Top Creator’s Words
           </div>
 
-          <div className="flex flex-row justify-between items-start mt-10 py-5">
+          <div className="flex flex-row  flex-wrap justify-between items-start mt-10 py-5 gap-10 ">
             <div
               className="  h-[227px] rounded-[15px] flex flex-row "
               style={gradientBackground}
@@ -174,6 +162,109 @@ const Homepage: any = () => {
                   EXPERT
                 </div>
               </div>
+            </div>
+            <div className="flex flex-col ">
+              <h1 className="text-[#FFF] text-justify font-Poppins text-[24px] max-w-2xl normal font-[400] leading-normal tracking-[0.3px]">
+                NFT will open thousands of new opportunities for this new
+                generation. I feel so proud and blessed that I have seen and
+                taken advantage of many great opportunities in this world before
+                millions of people have seen them.
+              </h1>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="110"
+                height="22"
+                viewBox="0 0 110 22"
+                fill="none"
+              >
+                <path
+                  d="M10.0489 2.92705C10.3483 2.00574 11.6517 2.00574 11.9511 2.92705L13.2451 6.90983C13.379 7.32185 13.763 7.60081 14.1962 7.60081H18.3839C19.3527 7.60081 19.7554 8.84043 18.9717 9.40983L15.5838 11.8713C15.2333 12.126 15.0866 12.5773 15.2205 12.9894L16.5146 16.9721C16.8139 17.8934 15.7595 18.6596 14.9757 18.0902L11.5878 15.6287C11.2373 15.374 10.7627 15.374 10.4122 15.6287L7.02426 18.0902C6.24054 18.6596 5.18607 17.8934 5.48542 16.9721L6.7795 12.9894C6.91338 12.5773 6.76672 12.126 6.41623 11.8713L3.02827 9.40983C2.24456 8.84043 2.64734 7.60081 3.61606 7.60081H7.8038C8.23703 7.60081 8.62099 7.32185 8.75486 6.90983L10.0489 2.92705Z"
+                  fill="url(#paint0_linear_15_2099)"
+                />
+                <path
+                  d="M32.0489 2.92705C32.3483 2.00574 33.6517 2.00574 33.9511 2.92705L35.2451 6.90983C35.379 7.32185 35.763 7.60081 36.1962 7.60081H40.3839C41.3527 7.60081 41.7554 8.84043 40.9717 9.40983L37.5838 11.8713C37.2333 12.126 37.0866 12.5773 37.2205 12.9894L38.5146 16.9721C38.8139 17.8934 37.7595 18.6596 36.9757 18.0902L33.5878 15.6287C33.2373 15.374 32.7627 15.374 32.4122 15.6287L29.0243 18.0902C28.2405 18.6596 27.1861 17.8934 27.4854 16.9721L28.7795 12.9894C28.9134 12.5773 28.7667 12.126 28.4162 11.8713L25.0283 9.40983C24.2446 8.84043 24.6473 7.60081 25.6161 7.60081H29.8038C30.237 7.60081 30.621 7.32185 30.7549 6.90983L32.0489 2.92705Z"
+                  fill="url(#paint1_linear_15_2099)"
+                />
+                <path
+                  d="M54.0489 2.92705C54.3483 2.00574 55.6517 2.00574 55.9511 2.92705L57.2451 6.90983C57.379 7.32185 57.763 7.60081 58.1962 7.60081H62.3839C63.3527 7.60081 63.7554 8.84043 62.9717 9.40983L59.5838 11.8713C59.2333 12.126 59.0866 12.5773 59.2205 12.9894L60.5146 16.9721C60.8139 17.8934 59.7595 18.6596 58.9757 18.0902L55.5878 15.6287C55.2373 15.374 54.7627 15.374 54.4122 15.6287L51.0243 18.0902C50.2405 18.6596 49.1861 17.8934 49.4854 16.9721L50.7795 12.9894C50.9134 12.5773 50.7667 12.126 50.4162 11.8713L47.0283 9.40983C46.2446 8.84043 46.6473 7.60081 47.6161 7.60081H51.8038C52.237 7.60081 52.621 7.32185 52.7549 6.90983L54.0489 2.92705Z"
+                  fill="url(#paint2_linear_15_2099)"
+                />
+                <path
+                  d="M76.0489 2.92705C76.3483 2.00574 77.6517 2.00574 77.9511 2.92705L79.2451 6.90983C79.379 7.32185 79.763 7.60081 80.1962 7.60081H84.3839C85.3527 7.60081 85.7554 8.84043 84.9717 9.40983L81.5838 11.8713C81.2333 12.126 81.0866 12.5773 81.2205 12.9894L82.5146 16.9721C82.8139 17.8934 81.7595 18.6596 80.9757 18.0902L77.5878 15.6287C77.2373 15.374 76.7627 15.374 76.4122 15.6287L73.0243 18.0902C72.2405 18.6596 71.1861 17.8934 71.4854 16.9721L72.7795 12.9894C72.9134 12.5773 72.7667 12.126 72.4162 11.8713L69.0283 9.40983C68.2446 8.84043 68.6473 7.60081 69.6161 7.60081H73.8038C74.237 7.60081 74.621 7.32185 74.7549 6.90983L76.0489 2.92705Z"
+                  fill="url(#paint3_linear_15_2099)"
+                />
+                <path
+                  d="M98.0489 2.92705C98.3483 2.00574 99.6517 2.00574 99.9511 2.92705L101.245 6.90983C101.379 7.32185 101.763 7.60081 102.196 7.60081H106.384C107.353 7.60081 107.755 8.84043 106.972 9.40983L103.584 11.8713C103.233 12.126 103.087 12.5773 103.22 12.9894L104.515 16.9721C104.814 17.8934 103.759 18.6596 102.976 18.0902L99.5878 15.6287C99.2373 15.374 98.7627 15.374 98.4122 15.6287L95.0243 18.0902C94.2405 18.6596 93.1861 17.8934 93.4854 16.9721L94.7795 12.9894C94.9134 12.5773 94.7667 12.126 94.4162 11.8713L91.0283 9.40983C90.2446 8.84043 90.6473 7.60081 91.6161 7.60081H95.8038C96.237 7.60081 96.621 7.32185 96.7549 6.90983L98.0489 2.92705Z"
+                  fill="url(#paint4_linear_15_2099)"
+                />
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_15_2099"
+                    x1="0"
+                    y1="0"
+                    x2="26.7105"
+                    y2="1.03932"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop offset="0.183111" stop-color="#FF56F6" />
+                    <stop offset="0.432593" stop-color="#B936EE" />
+                    <stop offset="0.854443" stop-color="#3BACE2" />
+                    <stop offset="1" stop-color="#406AFF" />
+                  </linearGradient>
+                  <linearGradient
+                    id="paint1_linear_15_2099"
+                    x1="22"
+                    y1="0"
+                    x2="48.7105"
+                    y2="1.03932"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop offset="0.183111" stop-color="#FF56F6" />
+                    <stop offset="0.432593" stop-color="#B936EE" />
+                    <stop offset="0.854443" stop-color="#3BACE2" />
+                    <stop offset="1" stop-color="#406AFF" />
+                  </linearGradient>
+                  <linearGradient
+                    id="paint2_linear_15_2099"
+                    x1="44"
+                    y1="0"
+                    x2="70.7105"
+                    y2="1.03932"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop offset="0.183111" stop-color="#FF56F6" />
+                    <stop offset="0.432593" stop-color="#B936EE" />
+                    <stop offset="0.854443" stop-color="#3BACE2" />
+                    <stop offset="1" stop-color="#406AFF" />
+                  </linearGradient>
+                  <linearGradient
+                    id="paint3_linear_15_2099"
+                    x1="66"
+                    y1="0"
+                    x2="92.7105"
+                    y2="1.03932"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop offset="0.183111" stop-color="#FF56F6" />
+                    <stop offset="0.432593" stop-color="#B936EE" />
+                    <stop offset="0.854443" stop-color="#3BACE2" />
+                    <stop offset="1" stop-color="#406AFF" />
+                  </linearGradient>
+                  <linearGradient
+                    id="paint4_linear_15_2099"
+                    x1="88"
+                    y1="0"
+                    x2="114.711"
+                    y2="1.03932"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop offset="0.183111" stop-color="#FF56F6" />
+                    <stop offset="0.432593" stop-color="#B936EE" />
+                    <stop offset="0.854443" stop-color="#3BACE2" />
+                    <stop offset="1" stop-color="#406AFF" />
+                  </linearGradient>
+                </defs>
+              </svg>
             </div>
           </div>
         </div>
