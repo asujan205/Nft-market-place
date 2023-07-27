@@ -252,6 +252,14 @@ const Homepage: any = () => {
           </div>
         </div>
       </div>
+      <div className="bg-gradient-to-r from-[#220970] to-[#FF00A8]">
+        <div className="flex flex-col mx-auto justify-between  max-w-7xl py-[6rem] items-start">
+          <div className="text-[#FFF]  font-Poppins text-[36px] normal font-[700] leading-normal ">
+            View Creator’s Collections
+          </div>
+          <div className="flex flex-row flex-wrap gap-5  mt-[8rem] lg:pl-[15rem]"></div>
+        </div>
+      </div>
 
       {/* <div className="flex flex-wrap space-x-10 mx-auto justify-center	bg-[url('/bg.svg')]mt-10">
         {metaData &&
