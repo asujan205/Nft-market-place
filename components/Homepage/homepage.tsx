@@ -102,8 +102,14 @@ const Homepage: any = () => {
           </div>
 
           <div className="flex flex-row gap-10  flex-wrap justify-between items-start ">
-            {nftData.map((nft) => (
-              <NftCard nft={nft} />
+            {nftData.map((nft, key) => (
+              <>
+                <h1
+                  key={key}
+                  className="text-[#FFF] text-center font-Poppins text-[16px] normal font-[500] leading-normal tracking-[0.3px]"
+                ></h1>
+                <NftCard nft={nft} />
+              </>
             ))}
           </div>
         </div>
@@ -257,7 +263,15 @@ const Homepage: any = () => {
           <div className="text-[#FFF]  font-Poppins text-[36px] normal font-[700] leading-normal ">
             View Creator’s Collections
           </div>
-          <div className="flex flex-row flex-wrap gap-5  mt-[8rem] lg:pl-[15rem]"></div>
+          <div className="relative">
+            <div className="mb-0">
+              <img src="/img12.png" alt="Image" />
+            </div>
+            <div
+              className="absolute top-[19rem] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[279.556px] h-[175px] rounded-[15px] backdrop-blur-[21px]"
+              style={gradientBackground}
+            ></div>
+          </div>
         </div>
       </div>
 
