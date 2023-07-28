@@ -116,7 +116,7 @@ const Homepage: any = () => {
 
           <div className="flex flex-row  flex-wrap justify-between items-start mt-10 py-5 gap-10 ">
             <div
-              className="  h-[227px] rounded-[15px] flex flex-row "
+              className="  h-[227px] rounded-[15px] flex flex-row backdrop-filter backdrop-blur-[25px] bg-opacity-10"
               style={gradientBackground}
             >
               <div className="flex flex-col px-5 ">
