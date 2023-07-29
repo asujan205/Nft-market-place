@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 // import NftCard from "../MiniComponents/NftCard";
 import { FetchAllNfts, BuyNftss } from "../Reducers/getAlldata";
 import NftCard from "./nftCardDummy";
+import Footer from "./footer";
 
 import useConnected from "./useConnected";
 import { useDispatch } from "react-redux";
@@ -101,7 +102,7 @@ const Homepage: any = () => {
             </div>
           </div>
 
-          <div className="flex flex-row gap-10  flex-wrap justify-between items-start ">
+          <div className="flex flex-row gap-10  flex-wrap justify-between items-start mx-auto">
             {nftData.map((nft, key) => (
               <>
                 <h1
@@ -268,12 +269,104 @@ const Homepage: any = () => {
               <img src="/img12.png" alt="Image" />
             </div>
             <div
-              className="absolute top-[19rem] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[279.556px] h-[175px] rounded-[15px] backdrop-blur-[21px]"
+              className="absolute top-[19rem] left-1/2 transform -translate-x-1/2  p-3 w-[279.556px] h-[175px] -translate-y-1/2 rounded-[15px] backdrop-blur-[21px]"
               style={gradientBackground}
-            ></div>
+            >
+              <div className="flex flex-col  items-start gap-2 px-1">
+                <h1 className="text-[#FFF] text-[16px] font-Poppins font-[600] leading-normal">
+                  Michael Joe
+                </h1>
+                <h1 className="text-[#FFF] text-[10px] font-Poppins font-[500] leading-[10px]">
+                  Total Earned
+                </h1>
+                <div className="flex flex-row gap-5 ">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="32"
+                    viewBox="0 0 22 32"
+                    fill="none"
+                  >
+                    <path
+                      d="M10.8298 0L0.555542 16.2966L10.8298 11.833V0Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M10.8298 11.8328L0.555542 16.2963L10.8298 22.1027V11.8328Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M21.1054 16.2966L10.8292 0V11.833L21.1054 16.2966Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M10.8292 22.1027L21.1054 16.2963L10.8292 11.8328V22.1027Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M0.555542 18.1599L10.8298 32V23.9627L0.555542 18.1599Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M10.8292 23.9627V32L21.1111 18.1599L10.8292 23.9627Z"
+                      fill="white"
+                    />
+                  </svg>
+                  <h1 className="text-[#FFF] text-[26px] font-Poppins font-[600] leading-normal ">
+                    320 ETH
+                  </h1>
+                </div>
+                <h1 className="text-[#FFF] text-[10px] font-Poppins font-[500] leading-[10px]">
+                  Total Spend
+                </h1>
+                <div className="flex flex-row gap-5 ">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="32"
+                    viewBox="0 0 22 32"
+                    fill="none"
+                  >
+                    <path
+                      d="M10.8298 0L0.555542 16.2966L10.8298 11.833V0Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M10.8298 11.8328L0.555542 16.2963L10.8298 22.1027V11.8328Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M21.1054 16.2966L10.8292 0V11.833L21.1054 16.2966Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M10.8292 22.1027L21.1054 16.2963L10.8292 11.8328V22.1027Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M0.555542 18.1599L10.8298 32V23.9627L0.555542 18.1599Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M10.8292 23.9627V32L21.1111 18.1599L10.8292 23.9627Z"
+                      fill="white"
+                    />
+                  </svg>
+                  <h1 className="text-[#FFF] text-[26px] font-Poppins font-[600] leading-normal ">
+                    100 ETH
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-row  items-center gap-5 mt-[6rem] pl-[5rem]">
+            <button className="rounded-[5px] p-5 items-center px-8 backdrop-blur-[96px] shadow-custom bg-gradient-to-r from-[#FF56F6] from-18.8% to-[#3BACE2] to-85.44% via-[#B936EE] via-40% group-hover:bg-gradient-to-l hover:from-[#3BACE2] hover:to-[#FF56F6] hover:via-[#406AFF]">
+              View Collections
+            </button>
           </div>
         </div>
       </div>
+      <Footer />
 
       {/* <div className="flex flex-wrap space-x-10 mx-auto justify-center	bg-[url('/bg.svg')]mt-10">
         {metaData &&
