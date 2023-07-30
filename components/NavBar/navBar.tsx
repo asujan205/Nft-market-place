@@ -53,7 +53,7 @@ const NavBar = ({
             </button>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center text-center lg:flex-row gap-5 border border-yellow-500 lg:mr-[8.6rem] p-5">
+        <div className="flex flex-col items-center justify-center text-center lg:flex-row gap-5 lg:mr-[8.6rem] p-5">
           <div className="max-w-[100%]">
             <img
               src="/illustration.svg"
@@ -74,9 +74,9 @@ const NavBar = ({
               Just got even better
             </h1>
             <h1 className="text-white font-poppins font-normal text-base lg:text-lg leading-normal px-3">
-              Best NFT collection freelance services online. Outsource your NFT
-              collection project and get it quickly done and delivered remotely
-              online.
+              <p>Best NFT collection freelance services online.</p>
+              <p> Outsource your NFT collection project and get</p>
+              it quickly done and delivered remotely online.
             </h1>
             <div className="flex flex-row  mt-5 items-center mx-auto">
               <svg
@@ -145,7 +145,7 @@ const NavBar = ({
                   Let’s get started!
                 </h1>
                 <h1 className="text-white font-poppins font-normal text-sm lg:text-base">
-                  Watch this quick demo video to see how to get started.
+                  <p>Watch this quick demo video</p> to see how to get started.
                 </h1>
               </div>
             </div>
