@@ -1,13 +1,13 @@
 import Link from "next/link";
 
 const Footer = () => {
-  const bg = {
-    backgroundImage: `url('/shapes.png')`,
-    background: "lightgray 0px -162.311px / 100% 120.063% no-repeat",
-    // Add other styles as needed...
-  };
+  // const bg = {
+  //   backgroundImage: `url('/shapes.png')`,
+  //   background: "lightgray 0px -162.311px / 100% 120.063% no-repeat",
+  //   // Add other styles as needed...
+  // };
   return (
-    <div className="w-full bg-backk" style={bg}>
+    <div className="w-full bg-backk">
       <div className="flex flex-col  py-4  lg:ml-[135px] ml-[3px] max-w-4xl gap-1 ">
         <div className="h-full  flex flex-row   gap-1 items-start">
           <Link href="/" className=" ">
