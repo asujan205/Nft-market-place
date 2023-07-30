@@ -1,9 +1,14 @@
 import Link from "next/link";
 
 const Footer = () => {
+  const bg = {
+    backgroundImage: `url('/shapes.png')`,
+    background: "lightgray 0px -162.311px / 100% 120.063% no-repeat",
+    // Add other styles as needed...
+  };
   return (
-    <div className="w-full bg-backk">
-      <div className="flex flex-col  py-4 mx-auto max-w-7xl gap-1">
+    <div className="w-full bg-backk" style={bg}>
+      <div className="flex flex-col  py-4  lg:ml-[135px] ml-[3px] max-w-4xl gap-1 ">
         <div className="h-full  flex flex-row   gap-1 items-start">
           <Link href="/" className=" ">
             <img src="/logo.png" alt="logo" className=" h-[50px]" />
@@ -21,7 +26,7 @@ const Footer = () => {
           <input
             type="text"
             placeholder="Enter your email Address"
-            className="bg-[#0C0263]	 rounded-l-[5px] backdrop-blur-[5px] px-5 py-3 items-center w-[87.7%] placeholder:text-[#FFF]  placeholder:font-Poppins placeholder:text-[16px] normal font-[500] leading-normal"
+            className="bg-[#0C0263]	 rounded-l-[5px] backdrop-blur-[5px] px-5 py-3 items-center w-[82%] placeholder:text-[#FFF]  placeholder:font-Poppins placeholder:text-[16px] normal font-[500] leading-normal"
           />
           <button className="rounded-r-[5px] p-5 items-center px-8 backdrop-blur-[96px] shadow-custom bg-gradient-to-r from-[#FF56F6] from-18.8% to-[#3BACE2] to-85.44% via-[#B936EE] via-40% group-hover:bg-gradient-to-l hover:from-[#3BACE2] hover:to-[#FF56F6] hover:via-[#406AFF]">
             Get Started
@@ -865,7 +870,7 @@ const Footer = () => {
               </defs>
             </svg>
           </div>
-          <div className="flex flex-col  ">
+          <div className="flex flex-col ">
             <div className="flex flex-row gap-5 items-center justify-center">
               <h1 className="text-cold-grey-white font-poppins text-[16px] font-[400] leading-normal">
                 About
@@ -884,10 +889,10 @@ const Footer = () => {
             </div>
             <div className="flex flex-row gap-5 items-center justify-center">
               <h1 className="text-cold-grey-white font-poppins text-[16px] font-[400] leading-normal">
-                Privacy Policy
+                Gallery
               </h1>
               <h1 className="text-cold-grey-white font-poppins text-[16px] font-[400] leading-normal">
-                Terms of Service
+                Partners
               </h1>
             </div>
           </div>
