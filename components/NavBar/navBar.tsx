@@ -53,102 +53,100 @@ const NavBar = ({
             </button>
           </div>
         </div>
-        <div className="flex flex-row   justify-between items-center  mx-auto  max-w-9xl">
-          <img
-            src="/illustration.svg"
-            alt="illustration"
-            className="max-w-[70%]"
-          />
+        <div className="flex flex-col items-center justify-center text-center lg:flex-row gap-5 border border-yellow-500 lg:mr-[8.6rem] p-5">
+          <div className="max-w-[100%]">
+            <img
+              src="/illustration.svg"
+              alt="illustration"
+              className="w-full"
+            />
+          </div>
 
-          <div>
-            <div className="flex flex-col  max-w-1xl ">
-              <div>
-                <h1 className="text-[#FFF] font-poppins text-[63px] font-[700] leading-normal capitalize">
-                  Cryptocurrency
-                </h1>
-              </div>
-              <div>
-                <h1 className="text-[#FFF] font-poppins normal font-[700] text-[50px] leading-normal capitalize ">
-                  just got even better
-                </h1>
-              </div>
-              <div>
-                <h1 className="text-[#FFF]  items-center font-poppins text-[20px] font-[400] normal tracking-[0.3px] leading-normal px-3 ">
-                  Best nft collection freelance services online. Outsource your
-                  nft collection project and get it quickly done and delivered
-                  remotely online.
-                </h1>
-              </div>
-              <div className="flex flex-row gap-5 mt-[20px] mx-auto max-w-2xl">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="92"
-                  height="96"
-                  viewBox="0 0 92 96"
-                  fill="none"
-                >
-                  <g filter="url(#filter0_d_7_579)">
-                    <path
-                      d="M29 48.4186C29.0788 51.9568 32.625 54.0993 35.7319 52.4149L60.716 37.9259C62.0767 37.1357 63 35.6879 63 33.9912C63 32.2945 62.0767 30.8467 60.716 30.0565L35.7319 15.5881C32.625 13.9037 29.0788 16.0256 29 19.5638V48.4186Z"
-                      fill="url(#paint0_linear_7_579)"
+          <div className="flex flex-col">
+            <div className="max-w-full">
+              {" "}
+              {/* Remove the fixed width to allow flexible sizing */}
+              <h1 className="text-white font-poppins text-3xl lg:text-[6.474820143884892vh] font-semibold leading-normal capitalize">
+                Cryptocurrency
+              </h1>
+            </div>
+            <h1 className="text-white font-poppins font-semibold text-xl lg:text-4xl leading-normal capitalize mb-4">
+              Just got even better
+            </h1>
+            <h1 className="text-white font-poppins font-normal text-base lg:text-lg leading-normal px-3">
+              Best NFT collection freelance services online. Outsource your NFT
+              collection project and get it quickly done and delivered remotely
+              online.
+            </h1>
+            <div className="flex flex-row  mt-5 items-center mx-auto">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="92"
+                height="96"
+                viewBox="0 0 92 96"
+                fill="none"
+              >
+                <g filter="url(#filter0_d_7_579)">
+                  <path
+                    d="M29 48.4186C29.0788 51.9568 32.625 54.0993 35.7319 52.4149L60.716 37.9259C62.0767 37.1357 63 35.6879 63 33.9912C63 32.2945 62.0767 30.8467 60.716 30.0565L35.7319 15.5881C32.625 13.9037 29.0788 16.0256 29 19.5638V48.4186Z"
+                    fill="url(#paint0_linear_7_579)"
+                  />
+                </g>
+                <defs>
+                  <filter
+                    id="filter0_d_7_579"
+                    x="0"
+                    y="0"
+                    width="92"
+                    height="96"
+                    filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB"
+                  >
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix
+                      in="SourceAlpha"
+                      type="matrix"
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                      result="hardAlpha"
                     />
-                  </g>
-                  <defs>
-                    <filter
-                      id="filter0_d_7_579"
-                      x="0"
-                      y="0"
-                      width="92"
-                      height="96"
-                      filterUnits="userSpaceOnUse"
-                      color-interpolation-filters="sRGB"
-                    >
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                      <feColorMatrix
-                        in="SourceAlpha"
-                        type="matrix"
-                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha"
-                      />
-                      <feOffset dy="14" />
-                      <feGaussianBlur stdDeviation="14.5" />
-                      <feColorMatrix
-                        type="matrix"
-                        values="0 0 0 0 0.0313726 0 0 0 0 0.00392157 0 0 0 0 0.247059 0 0 0 1 0"
-                      />
-                      <feBlend
-                        mode="normal"
-                        in2="BackgroundImageFix"
-                        result="effect1_dropShadow_7_579"
-                      />
-                      <feBlend
-                        mode="normal"
-                        in="SourceGraphic"
-                        in2="effect1_dropShadow_7_579"
-                        result="shape"
-                      />
-                    </filter>
-                    <linearGradient
-                      id="paint0_linear_7_579"
-                      x1="46"
-                      y1="15"
-                      x2="46"
-                      y2="53"
-                      gradientUnits="userSpaceOnUse"
-                    >
-                      <stop stop-color="#62DB68" />
-                      <stop offset="1" stop-color="#684FB4" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-                <div className="flex flex-col">
-                  <h1 className="text-[#FFF] font-poppins text-[20px] font-[500]   ">
-                    Let’s get started!
-                  </h1>
-                  <h1 className="text-[#FFF] font-poppins text-[14px] font-[400]    ">
-                    Watch this quick demo video to see how to get started.
-                  </h1>
-                </div>
+                    <feOffset dy="14" />
+                    <feGaussianBlur stdDeviation="14.5" />
+                    <feColorMatrix
+                      type="matrix"
+                      values="0 0 0 0 0.0313726 0 0 0 0 0.00392157 0 0 0 0 0.247059 0 0 0 1 0"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in2="BackgroundImageFix"
+                      result="effect1_dropShadow_7_579"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in="SourceGraphic"
+                      in2="effect1_dropShadow_7_579"
+                      result="shape"
+                    />
+                  </filter>
+                  <linearGradient
+                    id="paint0_linear_7_579"
+                    x1="46"
+                    y1="15"
+                    x2="46"
+                    y2="53"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#62DB68" />
+                    <stop offset="1" stop-color="#684FB4" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div className="flex flex-col mx-auto ">
+                <h1 className="text-white font-poppins font-semibold text-base lg:text-lg">
+                  Let’s get started!
+                </h1>
+                <h1 className="text-white font-poppins font-normal text-sm lg:text-base">
+                  Watch this quick demo video to see how to get started.
+                </h1>
               </div>
             </div>
           </div>
